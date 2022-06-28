@@ -1,8 +1,43 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
-  title: Rest APIs
-  description: Rest APIs
-  version: "1.0"
+  version: 1.0.0
+  title: Swagger UKG
+  termsOfService: 'https://ukg.com/terms/'
+  contact:
+    name: API Support
+    email: contact@ukg.com
+    url: 'http://ukg.com/contact'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://redocly.github.io/redoc/ukg-logo.png'
+    altText: UKG logo
+  description:
+    $ref: ./info-description.md
+tags:
+  - name: Attendance
+  - name: Common Resources I
+  - name: Common Resources II
+  - name: Scheduling
+  - name: Timekeeping
+  - name: Important notes
+  - name: Authentication
+  - name: Version History
+x-tagGroups:
+  - name: API
+    tags:
+      - Attendance
+      - Common Resources I
+      - Common Resources II
+      - Scheduling
+      - Timekeeping
+    
+  - name: Docs
+    tags:
+      - Important notes
+      - Authentication
+      - Version History
 servers:
   - url: 'https://{tenant}/api/v1'
     variables:
@@ -10,114 +45,29 @@ servers:
         default: www
         description: Your tenant id
   - url: 'https://ukg.com/api/v1'
-tags:
-- name: Attendance
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-- name: Common Resources I
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-- name: Common Resources II
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-- name: Scheduling
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-- name: Timekeeping
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-- name: Important notes
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-- name: Authentication
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-- name: Version History
-  description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-paths: {}
-components: {}
-x-tagGroups:
-- name: API
-  tags:
-  - Attendance
-  - Common Resources I
-  - Common Resources II
-  - Scheduling
-- name: Docs
-  tags:
-  - Important notes
-  - Authentication
-  - Version History
+paths:
+  /v1/attendance/actions/complete:
+    $ref: paths/attendance-actions-complete.yaml
+  /v1/attendance/actions/documents/multi_read:
+    $ref: paths/attendance-actions-documents-multi-read.yaml
+  /v1/attendance/actions/multi_read:
+    $ref: paths/attendance-actions-multi-read.yaml
+  /v1/attendance/actions/{id}:
+    $ref: paths/attendance-actions-id.yaml
+components:
+  securitySchemes:
+    main_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'http://example.com/api/oauth/dialog'
+          scopes:
+            'read:users': read users info
+            'write:users': modify or remove users
+    api_key:
+      type: apiKey
+      in: header
+      name: api_key
+    basic_auth:
+      type: http
+      scheme: basic
