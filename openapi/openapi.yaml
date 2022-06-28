@@ -16,8 +16,8 @@ info:
   description:
     $ref: ./info-description.md
 tags:
-- name: API
-  description: <p markdown="1">From here you may browse our library of API resources,
+  - name: API
+    description: <p markdown="1">From here you may browse our library of API resources,
     organized hierarchically by domain, or major functional area, logical subgroup,
     API resource, and all available operations against that resource. For more information
     about the concepts and technology behind our API, refer to the [Getting started](C:636f581c-50a8-41a7-af43-e5057f9c20bd)
@@ -29,17 +29,8 @@ tags:
     architectural style and allows access to your organization's workforce management
     data using common HTTP methods and the [JSON](http://www.json.org) interchange
     format.</p>
-- name: Actions
-  description: <p>This resource allows you to view and manipulate Attendance Actions,
-    which are a configured list of entities that each represent an Attendance consequence.</p><p>Actions
-    in Attendance are symbolic. They represent an informational flag to a human being
-    informing him or her that they need to go do something, such as a manager delivering
-    a verbal warning to an employee. Actions are an output of the Attendance Processor.
-    An Action Definition refers to configuration, while an Action Transaction refers
-    to the output of the Attendance Processor.</p>
-  x-parent: Attendance
-- name: Attendance
-  description: <p>Attendance automates the process of tracking and enforcing the types
+  - name: Attendance
+    description: <p>Attendance automates the process of tracking and enforcing the types
     of policies that might typically be found in an employee handbook. Missing a punch,
     being absent, punching in or out too early or too late, or consistently taking
     longer breaks than allowed are all common examples of the types of employee policies
@@ -50,81 +41,11 @@ tags:
     automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
     to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
     [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-  x-parent: API
-- name: Attendance Audit Records
-  description: This resource allows you to access auditing records for the Attendance
-    domain.
-  x-parent: Attendance
-- name: Attendance Profiles
-  description: <p>This resource allows you to retrieve attendance profiles.</p>
-  x-parent: Attendance
-- name: Balance Adjustments
-  description: <p>This resource allows you to retrieve, update, and delete adjustments
-    to an employee's balances.</p><p>In Attendance, balance adjustments are measured
-    in terms of points or time.</p>
-  x-parent: Attendance
-- name: Balance Expirations
-  description: <p>This resource allows you to access information about an employee's
-    expiring balances.</p><p>In Attendance, balances are measured in terms of points
-    or time.</p>
-  x-parent: Attendance
-- name: Balance Resets
-  description: <p>This resource allows you to delete, reset, and retrieve resets to
-    an employee's balances.</p><p>In Attendance, balance resets are measured in terms
-    of points or time.</p>
-  x-parent: Attendance
-- name: Balances
-  description: <p>This resource allows you to access information about an employee's
-    balances.</p><p>In Attendance, balances are measured in terms of points or time.</p>
-  x-parent: Attendance
-- name: Discipline Levels
-  description: <p>This resource allows you to access information about discipline
-    levels, which are configurable entities in Attendance through which you can group
-    a set of policies in an Attendance profile.</p><p>When a profile is assigned to
-    an employee, that employee can be in only one discipline level at any point of
-    time.</p>
-  x-parent: Attendance
-- name: Events
-  description: <p>This resource allows you to access Events, a basic component of
-    Attendance.</p><p>Attendance Events determine which data imported from Timekeeping
-    is significant to your organization's policies. Each Event maps to one of the
-    elements Attendance consumes from Timekeeping. Events can map to input from outside
-    the suite as well. For example, a company might choose to track traffic violations
-    for employees who drive company trucks. Events are input for the series of Attendance
-    rules enforced by all active policies.</p>
-  x-parent: Attendance
-- name: Markers
-  description: This resource allows you to create, retrieve, and delete markers, which
-    represent dates that influence the functionality of the Attendance Processor.
-  x-parent: Attendance
-- name: Perfect Attendance
-  description: <p>This resource allows you to access Perfect Attendance transactions.</p><p>As
-    Discipline Levels measure violations of acceptable behavior, Perfect Attendance
-    provides a way to measure and reward an employee's good behavior.</p>
-  x-parent: Attendance
-- name: Perfect Attendance Deductions
-  description: <p>This resource allows you to access Perfect Attendance deductions.</p><p>As
-    Discipline Levels measure violations of acceptable behavior, Perfect Attendance
-    provides a way to measure and reward an employee's good behavior.</p>
-  x-parent: Attendance
-- name: Processor Requests
-  description: <p>This resource allows you to create, retrieve, update, and delete
-    scheduled requests for the Attendance Processor.</p><p>The Attendance Processor
-    is responsible for extracting data from Timekeeping as well as enforcing the rules
-    that are defined within Attendance Policies. The Attendance Processor runs at
-    defined points in an organization's workflow.</p>
-  x-parent: Attendance
-- name: Profile Assignments
-  description: This resource allows you to peform general Attendance transactions,
-    such as retrieving Attendance profile assignments for a group of employees within
-    a date range.
-  x-parent: Attendance
-- name: Rules
-  description: <p>This resource allows you to execute Attendance rules.</p><p>Rules
-    in Attendance always evaluate to true or false when executed and serve as the
-    building blocks of Attendance policies. An Attendance consequence occurs for each
-    rule that is evaluated as false.</p>
-  x-parent: Attendance
+    x-parent: API
+  - name: Scheduling
+    description: This is a scheduling description.
+  - name: Timekeeping
+    description: This is a timekeeping description.
 x-tagGroups:
   - name: General
     tags:
