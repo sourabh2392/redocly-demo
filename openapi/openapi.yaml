@@ -18,22 +18,13 @@ info:
 tags:
   - name: API
     description: "<p markdown=\"1\">From here you may browse our library of API resources, organized hierarchically by domain, or major functional area, logical subgroup, API resource, and all available operations against that resource. For more information about the concepts and technology behind our API, refer to the [Getting started](C:636f581c-50a8-41a7-af43-e5057f9c20bd) documentation.</p><p>Our platform provides a powerful application programming interface and documentation to help you develop secure, scalable, and high-performance applications that leverage the full breadth of capabilities offered by our backend services.</p><p markdown=\"1\">The Workforce Management suite's API is founded on a pragmatic implementation of the [representational state transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer) architectural style and allows access to your organization's workforce management data using common HTTP methods and the [JSON](http://www.json.org) interchange format.</p>"
+  - name: Attendance
+    description: "<p>Attendance automates the process of tracking and enforcing the types of policies that might typically be found in an employee handbook. Missing a punch, being absent, punching in or out too early or too late, or consistently taking longer breaks than allowed are all common examples of the types of employee policies Attendance can be configured to support.</p><p>Attendance works with rules and policies. For example, if an employee is absent three times in a month, your policy might state such an employee is then on probation. A fourth absence in that time period could result in a final warning, and a fifth in termination. Attendance automates the enforcement of such rules in a very configurable way.</p><p markdown=\"1\">Refer to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>"
+    x-parent: API
   - name: Scheduling
     description: This is a scheduling description.
   - name: Timekeeping
     description: This is a timekeeping description.
-x-tagGroups:
-  - name: General
-    tags:
-      - pet
-      - store
-  - name: User Management
-    tags:
-      - user
-  - name: Models
-    tags:
-      - pet_model
-      - store_model
 servers:
   - url: 'https://{tenant}/api/v1'
     variables:
