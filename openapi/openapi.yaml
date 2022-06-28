@@ -47,7 +47,19 @@ servers:
   - url: 'https://ukg.com/api/v1'
 paths:
   /v1/attendance/actions/complete:
-    $ref: paths/attendance-actions-complete.yaml
+    post:
+      tags:
+        - Actions
+      summary: Completes actions for one or more employees.
+      description: Attendance Actions Complete
+      operationId: completeActions
+      responses:
+        '200':
+          description: Success.
+        '400':
+          description: Bad Request
+        '413':
+          description: Service limit has been exceeded by the API operation
 components:
   securitySchemes:
     main_auth:
