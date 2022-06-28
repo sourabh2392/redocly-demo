@@ -29,19 +29,6 @@ tags:
     architectural style and allows access to your organization's workforce management
     data using common HTTP methods and the [JSON](http://www.json.org) interchange
     format.</p>
-  - name: Attendance
-    description: <p>Attendance automates the process of tracking and enforcing the types
-    of policies that might typically be found in an employee handbook. Missing a punch,
-    being absent, punching in or out too early or too late, or consistently taking
-    longer breaks than allowed are all common examples of the types of employee policies
-    Attendance can be configured to support.</p><p>Attendance works with rules and
-    policies. For example, if an employee is absent three times in a month, your policy
-    might state such an employee is then on probation. A fourth absence in that time
-    period could result in a final warning, and a fifth in termination. Attendance
-    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
-    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
-    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-    x-parent: 'API'
   - name: Scheduling
     description: This is a scheduling description.
   - name: Timekeeping
