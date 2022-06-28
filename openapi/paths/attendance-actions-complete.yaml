@@ -9,6 +9,7 @@ post:
     '200':
       description: Success.
     '400':
-      description: <ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104] - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002] - The date range is invalid. The start date must be on or before the end date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100017] - Complete date is a required field.</li><li>[WAT-100034] - A conflict occurred. The following parameters are mutually exclusive: ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list cannot be null or empty.</li><li>[WAT-101110] - The employee parameter {parameterName} cannot be null.</li></ul>
+      description: "<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104] - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002] - The date range is invalid. The start date must be on or before the end date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100017] - Complete date is a required field.</li><li>[WAT-100034] - A conflict occurred. The following parameters are mutually exclusive: ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list cannot be null or empty.</li><li>[WAT-101110] - The employee parameter {parameterName} cannot be null.</li></ul>"
     '413':
-      description: <ul><li>[WFP-90001] - The service limit has been exceeded by the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002] - The service limit has been exceeded by the API operation on {resource} for {X} employees.</li></ul>
+      description: "<ul><li>[WFP-90001] - The service limit has been exceeded by the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002] - The service limit has been exceeded by the API operation on {resource} for {X} employees.</li></ul>"
+ 
