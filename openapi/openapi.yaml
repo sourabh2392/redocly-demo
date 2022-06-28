@@ -48,7 +48,7 @@ paths:
   /v1/attendance/actions/complete:
     post:
       tags:
-        - Actions
+        - Attendance
       summary: Completes actions for one or more employees.
       description: Attendance Actions Complete
       operationId: completeActions
