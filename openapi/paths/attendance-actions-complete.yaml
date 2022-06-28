@@ -1,6 +1,6 @@
 post:
   tags:
-    - Actions
+    - Attendance
   summary: Completes actions for one or more employees.
   description: |
     Operation description **Markdown**.
