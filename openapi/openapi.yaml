@@ -41,7 +41,7 @@ tags:
     automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
     to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
     [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
-    x-parent: API
+    x-parent: 'API'
   - name: Scheduling
     description: This is a scheduling description.
   - name: Timekeeping
