@@ -1,55 +1,3552 @@
-openapi: 3.1.0
+openapi: 3.0.1
 info:
-  version: 1.0.0
-  title: Example.com
-  termsOfService: 'https://example.com/terms/'
-  contact:
-    email: contact@example.com
-    url: 'http://example.com/contact'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-  x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
-  description:
-    $ref: ./info-description.md
-tags:
-  - name: Echo
-    description: Example echo operations.
-  - name: User
-    description: Operations about users.
-  - name: Tag
-    description: This is a tag description.
+  title: Rest APIs
+  description: Rest APIs
+  version: "1.0"
 servers:
-  - url: 'https://{tenant}/api/v1'
-    variables:
-      tenant:
-        default: www
-        description: Your tenant id
-  - url: 'https://example.com/api/v1'
+- url: /
+tags:
+- name: API
+  description: <p markdown="1">From here you may browse our library of API resources,
+    organized hierarchically by domain, or major functional area, logical subgroup,
+    API resource, and all available operations against that resource. For more information
+    about the concepts and technology behind our API, refer to the [Getting started](C:636f581c-50a8-41a7-af43-e5057f9c20bd)
+    documentation.</p><p>Our platform provides a powerful application programming
+    interface and documentation to help you develop secure, scalable, and high-performance
+    applications that leverage the full breadth of capabilities offered by our backend
+    services.</p><p markdown="1">The Workforce Management suite's API is founded on
+    a pragmatic implementation of the [representational state transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer)
+    architectural style and allows access to your organization's workforce management
+    data using common HTTP methods and the [JSON](http://www.json.org) interchange
+    format.</p>
+- name: Actions
+  description: <p>This resource allows you to view and manipulate Attendance Actions,
+    which are a configured list of entities that each represent an Attendance consequence.</p><p>Actions
+    in Attendance are symbolic. They represent an informational flag to a human being
+    informing him or her that they need to go do something, such as a manager delivering
+    a verbal warning to an employee. Actions are an output of the Attendance Processor.
+    An Action Definition refers to configuration, while an Action Transaction refers
+    to the output of the Attendance Processor.</p>
+  x-parent: Attendance
+- name: Attendance
+  description: <p>Attendance automates the process of tracking and enforcing the types
+    of policies that might typically be found in an employee handbook. Missing a punch,
+    being absent, punching in or out too early or too late, or consistently taking
+    longer breaks than allowed are all common examples of the types of employee policies
+    Attendance can be configured to support.</p><p>Attendance works with rules and
+    policies. For example, if an employee is absent three times in a month, your policy
+    might state such an employee is then on probation. A fourth absence in that time
+    period could result in a final warning, and a fifth in termination. Attendance
+    automates the enforcement of such rules in a very configurable way.</p><p markdown="1">Refer
+    to the [Attendance overview](C:64f8248f-e8ee-4c0e-8fb1-c1be60991354) topic in
+    [Domain overviews](C:f2ccfb74-38e7-466a-a7c7-acddc3d2d00c) for more information.</p>
+  x-parent: API
+- name: Attendance Audit Records
+  description: This resource allows you to access auditing records for the Attendance
+    domain.
+  x-parent: Attendance
+- name: Attendance Profiles
+  description: <p>This resource allows you to retrieve attendance profiles.</p>
+  x-parent: Attendance
+- name: Balance Adjustments
+  description: <p>This resource allows you to retrieve, update, and delete adjustments
+    to an employee's balances.</p><p>In Attendance, balance adjustments are measured
+    in terms of points or time.</p>
+  x-parent: Attendance
+- name: Balance Expirations
+  description: <p>This resource allows you to access information about an employee's
+    expiring balances.</p><p>In Attendance, balances are measured in terms of points
+    or time.</p>
+  x-parent: Attendance
+- name: Balance Resets
+  description: <p>This resource allows you to delete, reset, and retrieve resets to
+    an employee's balances.</p><p>In Attendance, balance resets are measured in terms
+    of points or time.</p>
+  x-parent: Attendance
+- name: Balances
+  description: <p>This resource allows you to access information about an employee's
+    balances.</p><p>In Attendance, balances are measured in terms of points or time.</p>
+  x-parent: Attendance
+- name: Discipline Levels
+  description: <p>This resource allows you to access information about discipline
+    levels, which are configurable entities in Attendance through which you can group
+    a set of policies in an Attendance profile.</p><p>When a profile is assigned to
+    an employee, that employee can be in only one discipline level at any point of
+    time.</p>
+  x-parent: Attendance
+- name: Events
+  description: <p>This resource allows you to access Events, a basic component of
+    Attendance.</p><p>Attendance Events determine which data imported from Timekeeping
+    is significant to your organization's policies. Each Event maps to one of the
+    elements Attendance consumes from Timekeeping. Events can map to input from outside
+    the suite as well. For example, a company might choose to track traffic violations
+    for employees who drive company trucks. Events are input for the series of Attendance
+    rules enforced by all active policies.</p>
+  x-parent: Attendance
+- name: Markers
+  description: This resource allows you to create, retrieve, and delete markers, which
+    represent dates that influence the functionality of the Attendance Processor.
+  x-parent: Attendance
+- name: Perfect Attendance
+  description: <p>This resource allows you to access Perfect Attendance transactions.</p><p>As
+    Discipline Levels measure violations of acceptable behavior, Perfect Attendance
+    provides a way to measure and reward an employee's good behavior.</p>
+  x-parent: Attendance
+- name: Perfect Attendance Deductions
+  description: <p>This resource allows you to access Perfect Attendance deductions.</p><p>As
+    Discipline Levels measure violations of acceptable behavior, Perfect Attendance
+    provides a way to measure and reward an employee's good behavior.</p>
+  x-parent: Attendance
+- name: Processor Requests
+  description: <p>This resource allows you to create, retrieve, update, and delete
+    scheduled requests for the Attendance Processor.</p><p>The Attendance Processor
+    is responsible for extracting data from Timekeeping as well as enforcing the rules
+    that are defined within Attendance Policies. The Attendance Processor runs at
+    defined points in an organization's workflow.</p>
+  x-parent: Attendance
+- name: Profile Assignments
+  description: This resource allows you to peform general Attendance transactions,
+    such as retrieving Attendance profile assignments for a group of employees within
+    a date range.
+  x-parent: Attendance
+- name: Rules
+  description: <p>This resource allows you to execute Attendance rules.</p><p>Rules
+    in Attendance always evaluate to true or false when executed and serve as the
+    building blocks of Attendance policies. An Attendance consequence occurs for each
+    rule that is evaluated as false.</p>
+  x-parent: Attendance
 paths:
-  '/users/{username}':
-    $ref: 'paths/users_{username}.yaml'
-  /echo:
-    $ref: paths/echo.yaml
-  /pathItem:
-    $ref: paths/path-item.yaml
-  /pathItemWithExamples:
-    $ref: paths/path-item-with-examples.yaml
+  /v1/attendance/actions/complete:
+    post:
+      tags:
+      - Actions
+      summary: Completes actions for one or more employees.
+      description: This operation completes actions for a list of employees whose
+        actions fall within a date range. When an action is completed, this operation
+        sets a completion date for each such action.
+      operationId: Complete Actions
+      requestBody:
+        description: 'Complete Action request context: contains list of employees,
+          start date, end date, and completion date.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompleteActionsRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content: {}
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100017]
+            - Complete date is a required field.</li><li>[WAT-100034] - A conflict
+            occurred. The following parameters are mutually exclusive: ids, qualifiers,
+            refs.</li><li>[WAT-101109] - Employee reference list cannot be null or
+            empty.</li><li>[WAT-101110] - The employee parameter {parameterName} cannot
+            be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/actions/documents/multi_read:
+    post:
+      tags:
+      - Actions
+      summary: Returns all documents associated with a group of actions.
+      description: This operation returns all documents associated with a group of
+        actions for a list of employees within a date range.
+      operationId: Retrieve Actions' Documents
+      requestBody:
+        description: 'Retrieve Action request context: contains a list of employees
+          and a date range.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessControlledRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ActionDocument'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100034]
+            - A conflict occurred. The following parameters are mutually exclusive:
+            ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list
+            cannot be null or empty.</li><li>[WAT-101110] - The employee parameter
+            {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/actions/multi_read:
+    post:
+      tags:
+      - Actions
+      summary: Returns all or only the required actions for multiple employees.
+      description: This operation returns all actions for a list of employees within
+        a date range irrespective of their status. Optionally, this operation returns
+        only required actions with an initiated or triggered status for a list of
+        employees within a date range.
+      operationId: Retrieve Multiple Actions
+      requestBody:
+        description: 'Action request context: contains list of employees, start date,
+          end date and optional find required only or completed flag.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Action'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-100034] - A conflict occurred. The following parameters
+            are mutually exclusive: ids, qualifiers, refs.</li><li>[WAT-101109] -
+            Employee reference list cannot be null or empty.</li><li>[WAT-101110]
+            - The employee parameter {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/actions/{id}:
+    get:
+      tags:
+      - Actions
+      summary: Returns information about an action.
+      description: This operation returns information about an action by ID. You can
+        choose to execute this operation either from the manager or employee perspective.
+      operationId: Retrieve Action by ID
+      parameters:
+      - name: id
+        in: path
+        description: An identifier representing an Attendance Action.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: is_manager_role
+        in: query
+        description: <em>[Optional]</em>A Boolean indicator of whether or not the
+          operation is executed with a manager role. When false, the operation is
+          executed with an employee role.
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+        400:
+          description: '[WAT-100202] - The following action ID does not exist: {id}.'
+          content: {}
+    post:
+      tags:
+      - Actions
+      summary: Updates an action's completion date and user note.
+      description: This operation updates an action's completion date and user note
+        by ID. If no completion date is provided, this operation deletes the existing
+        date and returns the action to the initiated status.
+      operationId: Update Action by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance action.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: 'Update Action request context: ID of the action to update, completion
+          date, and user note.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionUpdateRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+        400:
+          description: '<ul><li>[WAT-100202] - The following action ID does not exist:
+            {id}.</li><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101106]
+            - Parameter is required: {parameterName}.</li></ul>'
+          content: {}
+        409:
+          description: '[WAT-101014] - The object has been already modified by another
+            person, update version and try again.'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/actions/{id}/documents:
+    get:
+      tags:
+      - Actions
+      summary: Returns all documents associated with an action.
+      description: This operation returns all the documents associated with an action
+        by ID. You can choose to execute this operation either from the manager or
+        employee perspective.
+      operationId: Retrieve Action Documents by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance action.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: is_manager_role
+        in: query
+        description: <em>[Optional]</em>A Boolean indicator of whether or not the
+          operation is executed with a manager role. When false, the operation is
+          executed with an employee role.
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentSingleBinaryResponse'
+        400:
+          description: '[WAT-100202] - The following action ID does not exist: {id}.'
+          content: {}
+  /v1/attendance/attendance_profiles:
+    get:
+      tags:
+      - Attendance Profiles
+      summary: Returns all attendance profiles.
+      description: <p>This operation returns all attendance profiles.</p><br /><p>The
+        associated Access Control Point is WORKFORCE_ATTENDANCE_SETUP.</p>
+      operationId: Retrieve All Attendance Profiles
+      parameters:
+      - name: all_details
+        in: query
+        description: A Boolean indicator of whether or not the response returns all
+          details of each attendance profile. When false, the response returns only
+          the ID and name of each attendance profile.
+        schema:
+          type: boolean
+          default: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttendanceProfile'
+  /v1/attendance/attendance_profiles/multi_read:
+    post:
+      tags:
+      - Attendance Profiles
+      summary: Returns attendance profiles.
+      description: <p>This operation returns attendance profiles by object references.</p><br
+        /><p>The associated Access Control Point is WORKFORCE_ATTENDANCE_SETUP.</p>
+      operationId: Retrieve Attendance Profiles
+      requestBody:
+        description: 'Attendance Profile request: contains a list of ids, qualifiers,
+          persistentId or refs.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Multi Read Request for attendance Profiles'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttendanceProfile'
+        207:
+          description: <ul><li>[WAT-100228] - Some of the attendance profiles were
+            not exported because of errors in the source data. Correct those errors
+            and try again.</li></ul>
+          content: {}
+        400:
+          description: '<p>Bad Request:</p><ul><li>[WAT-101005] - A request cannot
+            be empty.</li><li>[WAT-101106] - Parameter is required: {parameterName}.</li><li>[WAT-100224]
+            - Request contains multiple parameters.</li><li>[WAT-100225] - Attendance
+            Profile does not exist.</li><li>[WAT-100226] - Attendance Profile by given
+            name does not exist.</li><li>[WAT-100227] - Attendance Profile by given
+            persistent id does not exist.</li><li>[WAT-100228] - Multi-Read request
+            is partially successful.</li><li>[WAT-100229] - Atleast one parameter
+            from id/qualifier/persistentId/ref is required.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/attendance_profiles/{id}:
+    get:
+      tags:
+      - Attendance Profiles
+      summary: Returns an attendance profile.
+      description: <p>This operation returns an attendance profile by ID.</p><br /><p>The
+        associated Access Control Point is WORKFORCE_ATTENDANCE_SETUP.</p>
+      operationId: Retrieve Attendance Profile by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an attendance profile.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttendanceProfile'
+        400:
+          description: <p>Bad Request:</p><ul><li>[WAT-100225] - Attendance Profile
+            does not exist.</li><ul>
+          content: {}
+  /v1/attendance/audit_records/multi_read:
+    post:
+      tags:
+      - Attendance Audit Records
+      summary: Returns auditing records for auditing entities and employees within
+        a date range.
+      description: This operation returns auditing records for the specified auditing
+        entities and employees within a date range. If auditing entities are not specified
+        in a request, all entities are returned. Note that the start date and end
+        date may have different meanings for different entity types, and that entities
+        of different types may contain different properties.
+      operationId: Retrieve Attendance Audit Records
+      requestBody:
+        description: 'Retrieve Audit Records request context: contains list of employees,
+          start date, end date. and a list of auditing entities.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttendanceAuditDataRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttendanceAuditData'
+        400:
+          description: '<ul><li>[WAT-101005] - A request cannot be empty.</li><li>[WAT-101001]
+            - The date or time format is invalid.</li><li>[WAT-101104] - Start date
+            is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-101024]
+            - The entity type {entityType} is not supported. Supported types include
+            the following: {supportedEntityTypes}.</li><li>[WAT-100034] - A conflict
+            occurred. The following parameters are mutually exclusive: ids, qualifiers,
+            refs.</li><li>[WAT-101109] - Employee reference list cannot be null or
+            empty.</li><li>[WAT-101110] - The employee parameter {parameterName} cannot
+            be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_adjustments:
+    post:
+      tags:
+      - Balance Adjustments
+      summary: Updates balances for employees.
+      description: This operation updates balances for a list of employees within
+        a date range based on a balance type and returns a list of balance adjustment
+        IDs.
+      operationId: Update and Return Balances
+      requestBody:
+        description: 'Update and Return Balances request context: contains a list
+          of employees, balance type, and update date.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateBalanceRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PointTransaction'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101105]
+            - An employee ID list is required.</li><li>[WAT-100102] - A Balance Update
+            date is required.</li><li>[WAT-101101] - An amount is required.</li><li>[WAT-100002]
+            - The amount exceeds the min/max value specified for the Balance type.</li><li>[WAT-100103]
+            - Starting Balance is required for Balance type: {type}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_adjustments/multi_read:
+    post:
+      tags:
+      - Balance Adjustments
+      summary: Returns point balance adjustments.
+      description: This operation returns point balance adjustments for a list of
+        employees within a date range.
+      operationId: Retrieve Balance Adjustments
+      requestBody:
+        description: 'Retrieve Balance Adjustments request context: contains a list
+          of employees, start date, and end date.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetBalancesRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BalanceAdjustment_DomainService'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100218]
+            - The following Balance type category does not exist: {type}.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_adjustments/multi_update:
+    post:
+      tags:
+      - Balance Adjustments
+      summary: Updates balances for employees for multiple balance types.
+      description: This operation updates balances for a list of employees within
+        a date range based on a balance type and returns a list of balance adjustment
+        IDs.
+      operationId: Bulk Update and Return Balances
+      requestBody:
+        description: 'Update and Return Balances request contexts: each context contains
+          a list of employees, balance type, and update date.'
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateBalanceRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PointTransaction'
+        400:
+          description: '<ul><li>[WAT-100221] - Bulk import operation completed with
+            error(s).</li><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101105]
+            - An employee ID list is required.</li><li>[WAT-100102] - A Balance Update
+            date is required.</li><li>[WAT-101101] - An amount is required.</li><li>[WAT-100002]
+            - The amount exceeds the min/max value specified for the Balance type.</li><li>[WAT-100103]
+            - Starting Balance is required for Balance type: {type}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_adjustments/{id}/mark_deleted:
+    post:
+      tags:
+      - Balance Adjustments
+      summary: Marks point balance adjustments for deletion.
+      description: This operation marks point balance adjustments for deletion by
+        ID.
+      operationId: Mark Balance Adjustments for Deletion by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of a point balance adjustment.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        204:
+          description: Success.
+          content: {}
+        400:
+          description: '<ul><li>[WAT-100006] - Only manual Point Balance Adjustments
+            can be deleted.</li><li>[WAT-100205] - The following Point Balance Adjustment
+            ID does not exist: {id}.</li></ul>'
+          content: {}
+  /v1/attendance/balance_expirations/multi_read:
+    post:
+      tags:
+      - Balance Expirations
+      summary: Returns expiring points for employees.
+      description: This operation returns expiring points for a list of employees
+        within a date range.
+      operationId: Retrieve Expiring Balances
+      requestBody:
+        description: Retrieve Expiring Balances request context contains a list of
+          employees, start date, and end date.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessControlledRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttendanceExpiringBalance_DomainService'
+        400:
+          description: <ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li></ul>
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_resets:
+    post:
+      tags:
+      - Balance Resets
+      summary: Resets balances for employees.
+      description: This operation resets the balances for a list of employees within
+        a date range and based on a balance type and returns a list of the reset balances.
+      operationId: Reset Balances
+      requestBody:
+        description: Reset Balances request context contains a list of employees,
+          balance types, and reset date.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetBalanceRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PointBalance'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101105]
+            - An employee ID list is required.</li><li>[WAT-100101] - A Balance Reset
+            date is required.</li><li>[WAT-100002] - The amount exceeds the min/max
+            value specified for the Balance type.</li><li>[WAT-100210] - The following
+            Balance definition does not exist: {type}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_resets/multi_read:
+    post:
+      tags:
+      - Balance Resets
+      summary: Returns point balance resets for employees.
+      description: This operation returns balance resets for a list of employees within
+        a date range.
+      operationId: Retrieve Balance Resets
+      requestBody:
+        description: Retrieve Balance Resets request context contains a list of employees,
+          start date, end date, and balance types.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetBalancesRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BalanceReset'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100218]
+            - The following Balance type category does not exist: {type}.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_resets/multi_update:
+    post:
+      tags:
+      - Balance Resets
+      summary: Resets balances for employees for multiple balance types.
+      description: This operation resets the balances for a list of employees within
+        a date range and based on a balance type and returns a list of the reset balances.
+      operationId: Bulk Reset Balances
+      requestBody:
+        description: 'Reset Balances request contexts: each context contains a list
+          of employees, balance types, and reset date.'
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResetBalanceRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PointBalance'
+        400:
+          description: '<ul><li>[WAT-100221] - Bulk import operation completed with
+            error(s).</li><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101105]
+            - An employee ID list is required.</li><li>[WAT-100101] - A Balance Reset
+            date is required.</li><li>[WAT-100002] - The amount exceeds the min/max
+            value specified for the Balance type.</li><li>[WAT-100210] - The following
+            Balance definition does not exist: {type}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/balance_resets/{id}/mark_deleted:
+    post:
+      tags:
+      - Balance Resets
+      summary: Marks point balance resets for deletion.
+      description: This operation marks point balance resets for deletion by ID.
+      operationId: Mark Balance Resets for Deletion by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of a point balance reset.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        204:
+          description: Success.
+          content: {}
+        400:
+          description: <ul><li>[WAT-100007] - Only manual Point Balance Resets can
+            be deleted.</li></ul>
+          content: {}
+  /v1/attendance/balances/multi_read:
+    post:
+      tags:
+      - Balances
+      summary: Returns point balance summaries for employees.
+      description: This operation returns point balance summaries for a list of employees
+        within a date range.
+      operationId: Retrieve Balances
+      requestBody:
+        description: Retrieve Balances request context contains a list of employees,
+          start date, and end date.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessControlledRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DayBalance'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100034]
+            - A conflict occurred. The following parameters are mutually exclusive:
+            ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list
+            cannot be null or empty.</li><li>[WAT-101110] - The employee parameter
+            {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/discipline_levels/multi_read:
+    post:
+      tags:
+      - Discipline Levels
+      summary: Returns discipline levels for employees.
+      description: This operation returns the discipline levels for a list of employees
+        within a date range. If <code>includeDailyDiscLevels</code> is true, the discipline
+        level for every day in the date range is returned. If <code>includeDailyDiscLevels</code>
+        is false, only discipline level changes are returned.
+      operationId: Retrieve Discipline Levels
+      requestBody:
+        description: Retrieve Discipline Levels request context contains a list of
+          employees, date range, and daily value flag.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisciplineLevelTransactionRequestContext'
+        required: true
+      responses:
+        200:
+          description: Resource found.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DisciplineLevelTransaction'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100034]
+            - A conflict occurred. The following parameters are mutually exclusive:
+            ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list
+            cannot be null or empty.</li><li>[WAT-101110] - The employee parameter
+            {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/events:
+    get:
+      tags:
+      - Events
+      summary: Returns events that resulted in a specified action.
+      description: <p>This operation returns events that resulted in a specified action.</p><p><strong>Note:</strong>
+        Perfect Attendance actions return an empty event list.</p>
+      operationId: Retrieve Events by Action
+      parameters:
+      - name: action_id
+        in: query
+        description: The ID of an Attendance Action.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: index
+        in: query
+        description: The pagination index, which represents the particular page of
+          events to return in the response.
+        schema:
+          type: integer
+          format: int32
+      - name: count
+        in: query
+        description: The pagination count, which represents the number of schedule
+          groups to return per page. This parameter has no upper limit.
+        schema:
+          type: integer
+          format: int32
+      - name: is_manager_role
+        in: query
+        description: A Boolean indicator of whether or not the operation is executed
+          with a manager role. When false, the operation is executed with an employee
+          role.
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttenandaceEvent_DomainService'
+        400:
+          description: '[WAT-100202] - The following Action ID does not exist: {id}.'
+          content: {}
+  /v1/attendance/events/multi_create:
+    post:
+      tags:
+      - Events
+      summary: Creates events for one or more employees.
+      description: This operation creates basic Attendance events for one or more
+        employees.
+      operationId: Create Events
+      parameters:
+      - name: partial_success
+        in: query
+        description: A Boolean indicator of whether or not processing continues if
+          errors are encountered. Defaults to false.
+        schema:
+          type: boolean
+      requestBody:
+        description: Events to create.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AttenandaceEvent'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttenandaceEvent_DomainService'
+        207:
+          description: <ul><li>[WAT-100222] - Some Unknown Error Occurred. Error Details
+            Not Available</li></ul>
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttenandaceEvent_DomainService'
+        400:
+          description: '<ul><li>[WAT-101011] - Invalid parameter:{parameterName}.</li><li>[WAT-101100]
+            - A date is required.</li><li>[WAT-100100] - An Event time is required.</li><li>[WAT-101102]
+            - An employee ID is required.</li><li>[WAT-100211] - Event definition
+            ID is required.</li><li>[WAT-100006] - The following Event definition
+            does not exist: {id}.</li><li>[WAT-100000] - An Event cannot have both
+            a day and time amount..</li><li>[WAT-101101] - An amount is required.</li><li>[WAT-101001]
+            - The date or time format is invalid.</li><li>[WAT-100200] - The following
+            Event ID does not exist: {id}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/events/multi_read:
+    post:
+      tags:
+      - Events
+      summary: Returns events.
+      description: This operation returns events for a list of employees within a
+        date range.
+      operationId: Retrieve Events
+      requestBody:
+        description: Retrieve Events request context contains a list of employees,
+          start date, end date, and an Exclude Inconsequential Events flag.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttenandaceEvent_DomainService'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101105] - An employee ID list is
+            required.</li><li>[WAT-101002] - The date range is invalid. The start
+            date must be on or before the end date.</li><li>[WAT-100034] - A conflict
+            occurred. The following parameters are mutually exclusive: ids, qualifiers,
+            refs.</li><li>[WAT-101109] - Employee reference list cannot be null or
+            empty.</li><li>[WAT-101110] - The employee parameter {parameterName} cannot
+            be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/events/types:
+    get:
+      tags:
+      - Events
+      summary: Returns a list of event types.
+      description: 'This operation returns a list of the following event types: basic,
+        pattern, combined, lost_time, and perfect_attendance.'
+      operationId: Retrieve Event Types
+      parameters:
+      - name: is_manager_role
+        in: query
+        description: <em>[Optional]</em>A Boolean indicator of whether or not the
+          operation is executed with a manager role. When false, the operation is
+          executed with an employee role.
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventGroup'
+  /v1/attendance/events/{id}:
+    post:
+      tags:
+      - Events
+      summary: Updates an event.
+      description: This operation updates a basic attendance event by ID.
+      operationId: Update Event by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance event.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Event to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttenandaceEvent'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttenandaceEvent_DomainService'
+        400:
+          description: '<ul><li>[WAT-101000] - A date must be provided.</li><li>[WAT-100004]
+            - An event time must be provided.</li><li>[WAT-101102] - An employee ID
+            is required.</li><li>[WAT-100211] - Event definition ID is required.</li><li>[WAT-100006]
+            - The following Event definition ID does not exist: {id}.</li><li>[WAT-100000]
+            - An Event cannot have both a day and time amount.</li><li>[WAT-100001]
+            - Deleted Events cannot be modified.</li><li>[WAT-101001] - The date or
+            time format is invalid.</li><li>[WAT-100200] - The following Event ID
+            does not exist: {id}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - Events
+      summary: Deletes a basic event.
+      description: 'This operation deletes a basic Attendance event by ID. The following
+        event types cannot be deleted: patterns, combined events, lost time events,
+        and perfect Attendance events.'
+      operationId: Delete Event by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance event.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        204:
+          description: Success.
+          content: {}
+        400:
+          description: '[WAT-100200] - The following Event ID does not exist: {id}.'
+          content: {}
+  /v1/attendance/events/{id}/mark_deleted:
+    post:
+      tags:
+      - Events
+      summary: Marks an event as deleted.
+      description: 'This operation marks a basic attendance event as deleted by ID.
+        The following event types cannot be marked as deleted: patterns, combined
+        events, lost time events, and perfect Attendance events.'
+      operationId: Mark Event as Deleted by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance Event.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        204:
+          description: Success.
+          content: {}
+        400:
+          description: '[WAT-100200] - The following Event ID does not exist: {id}.'
+          content: {}
+  /v1/attendance/events/{type}/{id}:
+    get:
+      tags:
+      - Events
+      summary: Returns an event.
+      description: 'This operation returns an event by an ID and type. The following
+        are valid values for type: basic, pattern, combined, lost_time, and perfect_attendance.'
+      operationId: Retrieve Event by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance event.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: type
+        in: path
+        description: Type of an Attendance event.
+        required: true
+        schema:
+          type: string
+      - name: is_manager_role
+        in: query
+        description: <em>[Optional]</em>A Boolean indicator of whether or not the
+          operation is executed with a manager role. When false, the operation is
+          executed with an employee role.
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttenandaceEvent_DomainService'
+        400:
+          description: '<ul><li>[WAT-100201] - The following Event type does not exist:
+            {type}.</li><li>[WAT-100200] - The following Event ID does not exist:
+            {id}.</li></ul>'
+          content: {}
+  /v1/attendance/markers/multi_create:
+    post:
+      tags:
+      - Markers
+      summary: Creates or updates Ignore History Markers or Ignore Timecard Markers
+        for employees.
+      description: This operation creates or updates Ignore History Markers or Ignore
+        Timecard Markers for a list of employees. When an Ignore History Marker is
+        added to an employee record, Attendance events earlier that the Ignore History
+        Marker date are not processed. When an Ignore Timecard Marker is added to
+        an employee record, Attendance events earlier than the Ignore Timecard Marker
+        date are not processed.
+      operationId: Create or Update Ignore Markers
+      requestBody:
+        description: The request context for the Create or Update Ignore Markers operation
+          contains marker type, a list of employees, and a date.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertDateMarkerRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeProcInfo'
+        400:
+          description: <ul><li>[WAT-101105] - An employee id list is required.</li><li>[WAT-101000]
+            - The date format is invalid.</li><li>[WAT-101023] - The marker type {markerType}
+            is not valid.</li><li>[WAT-101107] - A A marker type is required.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/markers/multi_delete:
+    post:
+      tags:
+      - Markers
+      summary: Removes Ignore History Markers or Ignore Timecard Markers for employees.
+      description: This operation removes Ignore History Markers or Ignore Timecard
+        Markers for a list of employees. When an Ignore History Marker is removed
+        from an employee record, all Attendance events are processed. When an Ignore
+        Timecard Marker is removed from an employee record, the Attendance Processor
+        no longer ignores Timecard data preceding the Ignore Timecard Marker date.
+      operationId: Remove Ignore Markers
+      requestBody:
+        description: The request context for the Remove Ignore Markers operation contains
+          marker type and a list of employees.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteDateMarkerRequestContext'
+        required: true
+      responses:
+        204:
+          description: Success.
+          content: {}
+        400:
+          description: '<ul><li>[WAT-101105] - An employee id list is required.</li><li>[WAT-101023]
+            - The marker type {markerType} is not valid.</li><li>[WAT-101107] - A
+            A marker type is required.</li><li>[WAT-100208] - Ignore History Marker
+            does not exist for the following employees: {ids}</li><li>[WAT-100209]
+            - Ignore Timecard Data Marker does not exist for the following employees:
+            {ids}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/markers/multi_read:
+    post:
+      tags:
+      - Markers
+      summary: Returns history and Timecard data markers.
+      description: This operation returns history and Timecard data markers for a
+        list of employees.
+      operationId: Retrieve Markers
+      requestBody:
+        description: The request context for the Retrieve Markers operation contains
+          a list of employees and an optional start date and end date.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessControlledRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeProcInfo'
+        400:
+          description: '<ul><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100034]
+            - A conflict occurred. The following parameters are mutually exclusive:
+            ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list
+            cannot be null or empty.</li><li>[WAT-101110] - The employee parameter
+            {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/perfect_attendance/multi_read:
+    post:
+      tags:
+      - Perfect Attendance
+      summary: Returns Perfect Attendance awards and violations.
+      description: This operation returns Perfect Attendance awards and violations
+        for a list of employees within a date range.
+      operationId: Retrieve Perfect Attendance Transactions
+      requestBody:
+        description: The request context for the Retrieve Perfect Attendance Transactions
+          operation contains a list of employees, a start date, and an end date.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessControlledRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PerfectAttendance'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid</li> <li>
+            [WAt-101104] - Start date is required</li> <li> [101103] - End date is
+            required </li> <li>[WAT-101002] - The date range is invalid. The start
+            date must be on or before the end date</li> <li> [WAT-101105] - An employee
+            ID list is required</li> <li>[WAT-100034] - A conflict occurred. The following
+            parameters are mutually exclusive: ids, qualifiers, refs.</li><li>[WAT-101109]
+            - Employee reference list cannot be null or empty.</li><li>[WAT-101110]
+            - The employee parameter {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/perfect_attendance_deductions/multi_read:
+    post:
+      tags:
+      - Perfect Attendance Deductions
+      summary: Returns Perfect Attendance deductions.
+      description: This operation returns Perfect Attendance deductions for a list
+        of employees within a date range.
+      operationId: Retrieve Perfect Attendance Deductions
+      requestBody:
+        description: The request context for the Retrieve Perfect Attendance Deductions
+          operation contains a list of employees, a start date, and an end date.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessControlledRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PerfectAttendanceDeduction'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100034]
+            - A conflict occurred. The following parameters are mutually exclusive:
+            ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list
+            cannot be null or empty.</li><li>[WAT-101110] - The employee parameter
+            {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/processor_requests:
+    get:
+      tags:
+      - Processor Requests
+      summary: Returns all Attendance Processor requests.
+      description: This operation returns all Attendance Processor requests.
+      operationId: Retrieve Attendance Processor Requests
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProcessorRequest'
+    post:
+      tags:
+      - Processor Requests
+      summary: Creates an Attendance Processor request.
+      description: This operation creates an Attendance Processor request.
+      operationId: Create Attendance Processor Request
+      requestBody:
+        description: Data Transfer Object (DTO) for the Create Attendance Processor
+          Request operation.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorRequest'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorRequest'
+        400:
+          description: '<ul><li>[WAT-100112] - A processor request name is required.</li><li>[WAT-100018]
+            - The processor request qualifier must be less than 200 symbols.</li><li>[WAT-100021]
+            - A processor request with the specified name already exists: {name}.</li><li>[WAT-100114]
+            - A processor request days to trancate parameter is required.</li><li>[WAT-100020]
+            - The processor request days-to-truncate value must be between 0 and 365
+            days.</li><li>[WAT-100115] - A processor request schedule is required.</li><li>[WAT-100117]
+            - A processor request schedule frequency type is required.</li><li>[WAT-100112]
+            - A processor request schedule dates are required.</li><li>[WAT-100113]
+            - A processor request hyperfind query id is required.</li><li>[WAT-100022]
+            - The processor request Hyperfind query {id} is not valid for user {name}.</li><li>[WAT-101200]
+            - The following employee id does not exist: {id}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/processor_requests/{id}:
+    get:
+      tags:
+      - Processor Requests
+      summary: Returns an Attendance Processor request.
+      description: This operation returns an Attendance Processor request by ID.
+      operationId: Retrieve Attendance Processor Request by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance Processor request.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorRequest'
+        400:
+          description: '<ul><li>[WAT-100213] - The following Attendance Processor
+            Request does not exist: {id}.</li><li>[WAT-100214] - The following related
+            processor request event does not exist: {id}.</li></ul>'
+          content: {}
+    put:
+      tags:
+      - Processor Requests
+      summary: Updates an Attendance Processor request.
+      description: This operation updates an existing Attendance Processor request
+        by ID.
+      operationId: Update Attendance Processor Request by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance Processor request.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Data Transfer Object (DTO) for the Update Attendance Processor
+          Request operation.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorRequest'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorRequest'
+        400:
+          description: '<ul><li>[WAT-100018] - The processor request qualifier must
+            be less than 200 symbols.</li><li>[WAT-100021] - A processor request with
+            the specified name already exists: {name}.</li><li>[WAT-100020] - The
+            processor request days-to-truncate value must be between 0 and 365 days.</li><li>[WAT-100117]
+            - A processor request schedule frequency type is required.</li><li>[WAT-100112]
+            - A processor request schedule dates are required.</li><li>[WAT-100022]
+            - The processor request Hyperfind query {id} is not valid for user {name}."</li><li>[WAT-100213]
+            - The following Attendance Processor Request does not exist: {id}.</li><li>[WAT-100214]
+            - The following related processor request event does not exist: {id}.</li><li>[WAT-101200]
+            - The following employee id does not exist: {id}.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - Processor Requests
+      summary: Deletes an Attendance Processor request.
+      description: This operation deletes an Attendance Processor request by ID.
+      operationId: Delete Attendance Processor Request by ID
+      parameters:
+      - name: id
+        in: path
+        description: The ID of an Attendance Processor request.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        204:
+          description: Success.
+          content: {}
+        400:
+          description: '<ul><li>[WAT-100213] - The following Attendance Processor
+            Request does not exist: {id}.</li><li>[WAT-100214] - The following related
+            processor request event does not exist: {id}.</li></ul>'
+          content: {}
+  /v1/attendance/profiles_assignments/multi_read:
+    post:
+      tags:
+      - Profile Assignments
+      summary: Returns profile assignments for employees.
+      description: This operation returns profile assignments for a list of employees
+        within a date range.
+      operationId: Retrieve Profile Assignments
+      requestBody:
+        description: 'Attendance employee profile assignments request context: contains
+          list of employees, start date, and end date.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessControlledRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProfileAssignment'
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104]
+            - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100034]
+            - A conflict occurred. The following parameters are mutually exclusive:
+            ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list
+            cannot be null or empty.</li><li>[WAT-101110] - The employee parameter
+            {parameterName} cannot be null.</li></ul>'
+          content: {}
+        413:
+          description: <ul><li>[WFP-90001] - The service limit has been exceeded by
+            the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002]
+            - The service limit has been exceeded by the API operation on {resource}
+            for {X} employees.</li></ul>
+          content: {}
+      x-codegen-request-body-name: body
+  /v1/attendance/rules/execute:
+    post:
+      tags:
+      - Rules
+      summary: Executes rules for employees.
+      description: This operation executes Attendance rules for a list of employees
+        within a date range. The Attendance Processor runs the rules and generates
+        any resulting actions for each employee.
+      operationId: Execute Attendance Rules for Employees
+      requestBody:
+        description: Contains a list of employees, start date, end date, and Use Default
+          Start Date flag.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplyRuleRequestContext'
+        required: true
+      responses:
+        200:
+          description: Success.
+          content: {}
+        400:
+          description: '<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101105]
+            - An employee ID list is required.</li><li>[WAT-101103] - End date is
+            required.</li><li>[WAT-101104] - Start date is required.</li><li>[WAT-101002]
+            - The date range is invalid. The start date must be on or before the end
+            date.</li><li>[WAT-101007] - End date should be no later than today.</li><li>[WAT-100034]
+            - A conflict occurred. The following parameters are mutually exclusive:
+            ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list
+            cannot be null or empty.</li><li>[WAT-101110] - The employee parameter
+            {parameterName} cannot be null.</li></ul>'
+          content: {}
+      x-codegen-request-body-name: body
 components:
-  securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
-          scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
+  schemas:
+    CompleteActionsRequestContext:
+      required:
+      - completionDateTime
+      - dateRange
+      - employees
+      - note
+      type: object
+      properties:
+        completionDateTime:
+          type: string
+          description: Date of completion.
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        note:
+          type: string
+          description: User Note.
+      description: Request Context object for action completion.
+    AccessControlledRequestContext:
+      required:
+      - dateRange
+      - employees
+      type: object
+      properties:
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        isManagerRole:
+          type: boolean
+          description: A flag that indicates whether user has a manager role.
+      description: Parent for other Attendance Request Contexts with flag manager
+        role.
+    ActionDocument:
+      required:
+      - applyDateTime
+      - documents
+      - employee
+      - name
+      type: object
+      properties:
+        applyDateTime:
+          type: string
+          description: Apply date of the action transaction.
+        documents:
+          type: array
+          description: Documents associated to the action transaction.
+          items:
+            $ref: '#/components/schemas/DocumentSingleBinaryResponse'
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: Name of the attendance action.
+      description: Model for documents associated with an Action.
+    ActionRequestContext:
+      required:
+      - dateRange
+      - employees
+      type: object
+      properties:
+        completed:
+          type: boolean
+          description: A flag if set to true returns only completed actions.
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        isManagerRole:
+          type: boolean
+          description: A flag that indicates whether user has a manager role.
+        requiredOnly:
+          type: boolean
+          description: A flag if set to true returns only required actions.
+      description: Request context object for Action.
+    Action:
+      required:
+      - actionStatusDateTime
+      - balance
+      - code
+      - completed
+      - completionDateTime
+      - description
+      - disciplineLevel
+      - effectiveDateId
+      - employee
+      - hasDocuments
+      - initiatedDateTime
+      - lastRuleEnforceDateTime
+      - name
+      - perfectAttendance
+      - policyDefinition
+      - processedThroughDateTime
+      - ruleDefinition
+      - status
+      - transactionId
+      - triggeredBalance
+      - triggeredDateTime
+      - userNote
+      - versionNumber
+      type: object
+      properties:
+        actionStatusDateTime:
+          type: string
+          description: Depending whether the action is initiated or completed, this
+            date equals to its initiateddate/completeddate accordingly.
+        balance:
+          $ref: '#/components/schemas/PointBalance'
+        code:
+          type: string
+          description: Action code.
+        completed:
+          type: boolean
+          description: A flag that indicates whether action transaction is completed.
+        completionDateTime:
+          type: string
+          description: Action completed date and time.
+        description:
+          type: string
+          description: Action description.
+        disciplineLevel:
+          $ref: '#/components/schemas/DisciplineLevel'
+        effectiveDateId:
+          type: integer
+          description: Corresponds to effective date setting for the action definition.
+            equals to 1 if action effective date is action triggered date, equals
+            to 2 if action effective date is action completed date.
+          format: int64
+          enum:
+          - 1
+          - 2
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        hasDocuments:
+          type: boolean
+          description: Indicates whether the action has documents.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        initiatedDateTime:
+          type: string
+          description: Action initiated date and time.
+        lastRuleEnforceDateTime:
+          type: string
+          description: Last rule enforced date and time.
+        name:
+          type: string
+          description: The name associated with an object reference.
+        perfectAttendance:
+          type: boolean
+          description: A flag that indicates whether this action belongs to perfect
+            attendance policy.
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition'
+        processedThroughDateTime:
+          type: string
+          description: Processed through date and time.
+        ruleDefinition:
+          $ref: '#/components/schemas/RuleDefinition'
+        status:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+        transactionId:
+          type: integer
+          description: Action transaction id.
+          format: int64
+        triggeredBalance:
+          $ref: '#/components/schemas/PointBalance'
+        triggeredDateTime:
+          type: string
+          description: Action triggerred date and time.
+        userNote:
+          type: string
+          description: User note.
+        versionNumber:
+          type: integer
+          description: Version.
+          format: int64
+      description: Model for Action Transaction.
+    ActionUpdateRequestContext:
+      required:
+      - completionDateTime
+      - id
+      - note
+      - versionNumber
+      type: object
+      properties:
+        completionDateTime:
+          type: string
+          description: Action completion date
+        id:
+          type: integer
+          description: The ID of the action to be updated.
+          format: int64
+        note:
+          type: string
+          description: User text note.
+        versionNumber:
+          type: integer
+          description: Version of Action
+          format: int64
+      description: Request Context for updating an Action.
+    DocumentSingleBinaryResponse:
+      required:
+      - contentType
+      - creationDateTime
+      - data
+      - domain
+      - entityId
+      - fileName
+      - id
+      - locale
+      - name
+      - size
+      - tags
+      type: object
+      properties:
+        binary:
+          type: boolean
+        contentType:
+          type: string
+          description: The content type of a binary data response.
+          enum:
+          - ZIP
+          - XML
+          - XHTML
+          - DOC
+          - DOCX
+          - PDF
+          - TXT
+          - HTML
+          - HTM
+          - JPG
+          - XLS
+          - XLSX
+        creationDateTime:
+          type: string
+          description: The date and time a document management entity was created.
+          format: date
+        data:
+          type: array
+          description: The binary data response content.
+          items:
+            pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+            type: string
+            format: byte
+        domain:
+          $ref: '#/components/schemas/ObjectReference'
+        entityId:
+          type: integer
+          description: The ID of an entity associated with a document binary response.
+          format: int64
+        fileName:
+          type: string
+          description: The file name of the binary data response.
+        id:
+          type: integer
+          description: The ID of a document management entity.
+          format: int64
+        locale:
+          $ref: '#/components/schemas/LocalePolicy'
+        name:
+          type: string
+          description: The name of a document management entity.
+        size:
+          type: number
+          description: The size of a document management entity.
+          format: double
+        tags:
+          type: object
+          additionalProperties:
+            type: object
+            properties: {}
+          description: The tags associated with a document binary response.
+      description: Model for the Document resource.
+    AttendanceProfile:
+      required:
+      - activeSwitch
+      - description
+      - id
+      - name
+      - persistentId
+      - versions
+      type: object
+      properties:
+        activeSwitch:
+          type: boolean
+          description: A Boolean indicator of whether or not an attendance profile
+            is active.
+        description:
+          type: string
+          description: The description of an attendance profile.
+        id:
+          type: integer
+          description: The ID of an attendance profile.
+          format: int64
+        name:
+          type: string
+          description: The name of an attendance profile.
+        persistentId:
+          type: string
+          description: The persistent ID of an attendance profile.
+        versions:
+          type: array
+          description: A list of the profile policies associated with each attendance
+            profile.
+          items:
+            $ref: '#/components/schemas/ProfilePolicyAssignmentDTOList'
+      description: Model for Attendance Profile.
+    Multi Read Request for attendance Profiles:
+      type: object
+      properties:
+        where:
+          $ref: '#/components/schemas/Multi Read Criteria to fetch attendance profile.'
+      description: The Retrieve Employee Groups request payload's where model.
+    AttendanceAuditDataRequestContext:
+      required:
+      - dateRange
+      - employees
+      type: object
+      properties:
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        entityTypes:
+          type: array
+          description: Case insensitive auditing entity types.
+          items:
+            type: string
+      description: The audit records common data model.
+    AttendanceAuditData:
+      type: object
+      properties:
+        entityType:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+        id:
+          type: string
+          description: The ID of a leave domain entity.
+        revisionDate:
+          type: string
+          description: The date and time of changes
+          readOnly: true
+        revisionInfo:
+          type: integer
+          description: revision unique identifier
+          format: int64
+          readOnly: true
+        revisionType:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+        user:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+      description: The audit records common data model.
+    UpdateBalanceRequestContext:
+      required:
+      - amount
+      - balanceDefinition
+      - employees
+      - updateDateTime
+      type: object
+      properties:
+        amount:
+          type: number
+          description: The balance amount to update.
+        balanceDefinition:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        isManagerRole:
+          type: boolean
+          description: A flag that indicates whether user has a manager role.
+        updateDateTime:
+          type: string
+          description: The date and time of a balance update in ISO_LOCAL_DATE_TIME
+            format (yyyy-mm-ddThh:mm:ss.sss).
+      description: Request Context for Balance Update.
+    PointTransaction:
+      required:
+      - applyDateTime
+      - balanceChange
+      - employee
+      - name
+      - type
+      type: object
+      properties:
+        applyDateTime:
+          type: string
+          description: Apply date and time of point transaction.
+        balanceChange:
+          type: number
+          description: Balance change amount.
+          format: double
+        decimalPlaceNum:
+          type: number
+          description: Number of decimal places.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+      description: Model for Point Transaction.
+    GetBalancesRequestContext:
+      required:
+      - dateRange
+      - employees
+      type: object
+      properties:
+        balanceTypes:
+          type: array
+          description: A list of balance type categories for filtering
+          items:
+            type: string
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        isManagerRole:
+          type: boolean
+          description: A flag that indicates whether user has a manager role.
+      description: Request Context for Get Balance Resets and Adjustments
+    BalanceAdjustment_DomainService:
+      required:
+      - applyDateTime
+      - balanceChange
+      - employee
+      - name
+      - pointBalanceType
+      - policyDefinition
+      - ruleDefinition
+      - type
+      - updatedByUser
+      type: object
+      properties:
+        applyDateTime:
+          type: string
+          description: Apply date and time of point transaction.
+        balanceChange:
+          type: number
+          description: Balance change amount.
+          format: double
+        decimalPlaceNum:
+          type: number
+          description: Number of decimal places.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto_DomainService'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        pointBalanceType:
+          $ref: '#/components/schemas/PointBalanceType_DomainService'
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition_DomainService'
+        ruleDefinition:
+          $ref: '#/components/schemas/RuleDefinition_DomainService'
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject_DomainService'
+        updatedByUser:
+          type: integer
+          description: The ID of the user who performed this balance adjustment.
+          format: int64
+      description: Model for Balance Adjustment.
+    AttendanceExpiringBalance_DomainService:
+      required:
+      - awardDateTime
+      - balanceChange
+      - employee
+      - expirationDateTime
+      - name
+      - pointBalanceType
+      - policyDefinition
+      - resetDateTime
+      - type
+      type: object
+      properties:
+        awardDateTime:
+          type: string
+          description: The date and time on which expired event was generated.
+        balanceChange:
+          type: number
+          description: Balance change amount.
+          format: double
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto_DomainService'
+        expirationDateTime:
+          type: string
+          description: The date and time of when this balance is going to be expired.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        pointBalanceType:
+          $ref: '#/components/schemas/PointBalanceType_DomainService'
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition_DomainService'
+        resetDateTime:
+          type: string
+          description: The date and time of reset that leaded to the balance not being
+            changed by expiration.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject_DomainService'
+      description: Model for Balance Expiration.
+    ResetBalanceRequestContext:
+      required:
+      - amount
+      - balanceDefinition
+      - dateRange
+      - employees
+      - resetDateTime
+      type: object
+      properties:
+        amount:
+          type: number
+          description: The reset amount of a balance reset.
+        balanceDefinition:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        isManagerRole:
+          type: boolean
+          description: A flag that indicates whether user has a manager role.
+        resetDateTime:
+          type: string
+          description: The date and time of a balance reset in ISO_LOCAL_DATE_TIME
+            format (yyyy-mm-ddThh:mm:ss.sss).
+      description: The request payload model for a balance reset.
+    PointBalance:
+      required:
+      - balanceAmount
+      - employee
+      - name
+      - startDateTime
+      - type
+      type: object
+      properties:
+        balanceAmount:
+          type: number
+          description: Balance amount.
+          format: double
+        decimalPlaceNum:
+          type: number
+          description: Number of decimal places.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        startDateTime:
+          type: string
+          description: The start date and time of this balance.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+      description: Model for Point Balance.
+    BalanceReset:
+      required:
+      - balanceAmount
+      - employee
+      - name
+      - pointBalanceType
+      - policyDefinition
+      - ruleDefinition
+      - startDateTime
+      - type
+      - updatedByUser
+      type: object
+      properties:
+        balanceAmount:
+          type: number
+          description: Balance amount.
+          format: double
+        decimalPlaceNum:
+          type: number
+          description: Number of decimal places.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        pointBalanceType:
+          $ref: '#/components/schemas/PointBalanceType'
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition'
+        ruleDefinition:
+          $ref: '#/components/schemas/RuleDefinition'
+        startDateTime:
+          type: string
+          description: The start date and time of this balance.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+        updatedByUser:
+          type: integer
+          description: The ID of the user who performed the reset.
+          format: int64
+      description: Model for Balance Reset.
+    DayBalance:
+      required:
+      - dateTime
+      - employee
+      - endBalanceAmount
+      - isChanged
+      - name
+      - pointBalanceType
+      - startBalanceAmount
+      - type
+      type: object
+      properties:
+        dateTime:
+          type: string
+          description: The date and time associated with a balance.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        endBalanceAmount:
+          type: number
+          description: The ending balance amount.
+          format: double
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        isChanged:
+          type: boolean
+          description: A Boolean indicator of whether or not a change in points occurred
+            for this balance transaction.
+        name:
+          type: string
+          description: The name associated with an object reference.
+        pointBalanceType:
+          $ref: '#/components/schemas/PointBalanceType'
+        startBalanceAmount:
+          type: number
+          description: The starting balance amount.
+          format: double
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+      description: Model for Day Balance.
+    DisciplineLevelTransactionRequestContext:
+      required:
+      - dateRange
+      - employees
+      type: object
+      properties:
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        includeDailyDiscLevels:
+          type: boolean
+          description: If false, returns only discipline level changes, otherwise
+            returns all the dates within date range with corresponding discipline
+            levels on every day.
+        isManagerRole:
+          type: boolean
+          description: A flag that indicates whether user has a manager role.
+      description: Request Context for Discipline Level Transaction.
+    DisciplineLevelTransaction:
+      required:
+      - balance
+      - dateTime
+      - discipline
+      - employee
+      - endDateTime
+      - policy
+      - profile
+      - rule
+      - startDateTime
+      type: object
+      properties:
+        balance:
+          $ref: '#/components/schemas/PointBalance'
+        dateTime:
+          type: string
+          description: The date and time of discipline level change or daily discipline
+            level.
+        discipline:
+          $ref: '#/components/schemas/DisciplineLevel'
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        endDateTime:
+          type: string
+          description: The end date and time of discipline level.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        policy:
+          $ref: '#/components/schemas/PolicyDefinition'
+        profile:
+          $ref: '#/components/schemas/ProfileDefinition'
+        rule:
+          $ref: '#/components/schemas/RuleDefinition'
+        startDateTime:
+          type: string
+          description: The start date and time of discipline level.
+      description: Model for Discipline Level Transaction.
+    AttenandaceEvent_DomainService:
+      required:
+      - amount
+      - applyDate
+      - dayAmount
+      - employee
+      - eventDefinition
+      - eventTime
+      - isSystem
+      - name
+      - pointTransaction
+      - policyDefinition
+      - ruleDefinition
+      - timeZoneId
+      - type
+      - updatedByUserId
+      type: object
+      properties:
+        amount:
+          type: number
+          description: The amount in seconds.
+        applyDate:
+          type: string
+          description: Date when event was generated.
+          format: date
+        dayAmount:
+          type: number
+          description: The amount in days.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto_DomainService'
+        employeeCurrency:
+          type: string
+          description: Currency code of event's employee.
+          readOnly: true
+        eventDefinition:
+          $ref: '#/components/schemas/EventDefinition_DomainService'
+        eventTime:
+          type: string
+          description: Time when event was generated.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        isSystem:
+          type: boolean
+          description: A flag that indicates whether this event is a system generated
+            one.
+        name:
+          type: string
+          description: The name associated with an object reference.
+        pointTransaction:
+          $ref: '#/components/schemas/PointTransaction_DomainService'
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition_DomainService'
+        ruleDefinition:
+          $ref: '#/components/schemas/RuleDefinition_DomainService'
+        timeZoneId:
+          type: integer
+          description: Time zone identifier.
+          format: int64
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject_DomainService'
+        updatedByUserId:
+          type: integer
+          description: The ID of user who updated the event.
+          format: int64
+        userCurrency:
+          type: string
+          description: Currency code of logged in user.
+          readOnly: true
+        wageLiability:
+          type: number
+          description: Wage liability amount calculated based on TimeKeeping Wage
+            Rate.
+          format: double
+          readOnly: true
+      description: Model for event publish history search response.
+    AttenandaceEvent:
+      required:
+      - amount
+      - applyDate
+      - dayAmount
+      - employee
+      - eventDefinition
+      - eventTime
+      - isSystem
+      - name
+      - pointTransaction
+      - policyDefinition
+      - ruleDefinition
+      - timeZoneId
+      - type
+      - updatedByUserId
+      type: object
+      properties:
+        amount:
+          type: number
+          description: The amount in seconds.
+        applyDate:
+          type: string
+          description: Date when event was generated.
+          format: date
+        dayAmount:
+          type: number
+          description: The amount in days.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        employeeCurrency:
+          type: string
+          description: Currency code of event's employee.
+          readOnly: true
+        eventDefinition:
+          $ref: '#/components/schemas/EventDefinition'
+        eventTime:
+          type: string
+          description: Time when event was generated.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        incidentDate:
+          type: string
+          description: Included only for incident requests, equals to apply date.
+          format: date
+          readOnly: true
+        incidentType:
+          type: string
+          description: Included only for incident requests, has EVENT value for a
+            such dto type.
+          readOnly: true
+          enum:
+          - EVENT
+          - EXPIRING_POINT
+          - BALANCE_UPDATE
+        isSystem:
+          type: boolean
+          description: A flag that indicates whether this event is a system generated
+            one.
+        name:
+          type: string
+          description: The name associated with an object reference.
+        pointTransaction:
+          $ref: '#/components/schemas/PointTransaction'
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition'
+        ruleDefinition:
+          $ref: '#/components/schemas/RuleDefinition'
+        timeZoneId:
+          type: integer
+          description: Time zone identifier.
+          format: int64
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+        updatedByUserId:
+          type: integer
+          description: The ID of user who updated the event.
+          format: int64
+        userCurrency:
+          type: string
+          description: Currency code of logged in user.
+          readOnly: true
+        wageLiability:
+          type: number
+          description: Wage liability amount calculated based on TimeKeeping Wage
+            Rate.
+          format: double
+          readOnly: true
+      description: Model for event publish history search response.
+    EventRequestContext:
+      required:
+      - actionId
+      - dateRange
+      - employeeId
+      - employees
+      type: object
+      properties:
+        actionId:
+          type: integer
+          description: Action Identifier.
+          format: int64
+        dateRange:
+          $ref: '#/components/schemas/AttendanceDateRange'
+        employeeId:
+          type: integer
+          description: A reference to the Employee object.
+          format: int64
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        eventTypes:
+          type: array
+          items:
+            type: string
+        excludeInconsequentialEvents:
+          type: boolean
+          description: If false - returns all events even without consequences.
+        isManagerRole:
+          type: boolean
+          description: A flag that indicates whether user has a manager role.
+        wageLiabilityCalculated:
+          type: boolean
+          description: Flag that indicates whether Wage Liability attribute should
+            be calculated and included in the response.
+      description: Request Context for Event.
+    EventGroup:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Event Group.
+    UpsertDateMarkerRequestContext:
+      required:
+      - dateTime
+      - employees
+      - markerType
+      type: object
+      properties:
+        dateTime:
+          type: string
+          description: Date.
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        markerType:
+          type: string
+          description: The type of marker involved in the operation. Possible values
+            are "HISTORY" or "TIMECARD".
+      description: Request Context to create/update Ignore History Marker and Ignore
+        Timecard Marker.
+    EmployeeProcInfo:
+      required:
+      - amnestyMarkerDateTime
+      - employee
+      - procStartDateTime
+      - procThroughDateTime
+      - startupDateTime
+      type: object
+      properties:
+        amnestyMarkerDateTime:
+          type: string
+          description: ignore history marker.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        procStartDateTime:
+          type: string
+          description: date&time from which rules were applied.
+        procThroughDateTime:
+          type: string
+          description: date&time to which rules were applied.
+        startupDateTime:
+          type: string
+          description: ignore timecard marker.
+      description: Model for EmployeeProcInfo.
+    DeleteDateMarkerRequestContext:
+      required:
+      - employees
+      - markerType
+      type: object
+      properties:
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        markerType:
+          type: string
+          description: The type of marker involved in the operation. Possible values
+            are "HISTORY" or "TIMECARD".
+      description: Request Context to delete Ignore History Marker and Ignore Timecard
+        Marker.")
+    PerfectAttendance:
+      required:
+      - applyDateTime
+      - employee
+      - name
+      - perfectAttendanceDefinition
+      - pointTransaction
+      - policyDefinition
+      - type
+      type: object
+      properties:
+        applyDateTime:
+          type: string
+          description: Apply date and time of a perfect attendance transaction.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        perfectAttendanceDefinition:
+          $ref: '#/components/schemas/PerfectAttendanceDefinition'
+        pointTransaction:
+          $ref: '#/components/schemas/PointTransaction'
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition'
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+      description: Model for Perfect Attendance.
+    PerfectAttendanceDeduction:
+      required:
+      - balanceChange
+      - deductionDateTime
+      - employee
+      - name
+      - perfectAttendanceDateTime
+      - pointBalanceType
+      - policyDefinition
+      - type
+      type: object
+      properties:
+        balanceChange:
+          type: number
+          description: Balance change amount.
+          format: double
+        deductionDateTime:
+          type: string
+          description: date&time of pa deduction's generation .
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        perfectAttendanceDateTime:
+          type: string
+          description: date&time of pa award's generation .
+        pointBalanceType:
+          $ref: '#/components/schemas/PointBalanceType'
+        policyDefinition:
+          $ref: '#/components/schemas/PolicyDefinition'
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+      description: Model for Perfect Attendance Deduction.
+    ProcessorRequest:
+      required:
+      - daysToTruncate
+      - hyperfindQuery
+      - name
+      - schedulingInfo
+      type: object
+      properties:
+        daysToTruncate:
+          type: integer
+          description: number of days to truncate for end date calculation.
+          format: int32
+        description:
+          type: string
+          description: description of processor request.
+        hyperfindQuery:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        nextRun:
+          type: string
+          description: next attendance processor run info
+        scheduledByUserId:
+          type: integer
+          description: The ID of user by which the event is being scheduled.
+          format: int64
+        scheduledForUserId:
+          type: integer
+          description: The ID of user for which the event is being scheduled
+          format: int64
+        schedulingInfo:
+          $ref: '#/components/schemas/SchedulingEventDetails'
+      description: Model for Processor Request.
+    ProfileAssignment:
+      required:
+      - dateTime
+      - employee
+      - profileDefinition
+      - type
+      type: object
+      properties:
+        dateTime:
+          type: string
+          description: date&time of profile assignment.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        profileDefinition:
+          $ref: '#/components/schemas/ProfileDefinition'
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+      description: Model for Profile Assignment.
+    ApplyRuleRequestContext:
+      required:
+      - employees
+      - endDate
+      - startDate
+      type: object
+      properties:
+        employees:
+          $ref: '#/components/schemas/ObjectReferenceList'
+        endDate:
+          type: string
+          description: The end date of a date range in ISO_LOCAL_DATE format (YYYY-MM-DD).
+        startDate:
+          type: string
+          description: The start date of a date range in ISO_LOCAL_DATE format (YYYY-MM-DD).
+        useDefaultStartDate:
+          type: boolean
+          description: A flag that specifies whether default start date should be
+            used.
+      description: Request Context for applying rules.
+    AttendanceDateRange:
+      required:
+      - endDate
+      - startDate
+      - symbolicPeriod
+      type: object
+      properties:
+        endDate:
+          type: string
+          description: The end date of a date range in ISO_LOCAL_DATE format (YYYY-MM-DD).
+        startDate:
+          type: string
+          description: The start date of a date range in ISO_LOCAL_DATE format (YYYY-MM-DD).
+        symbolicPeriod:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+      description: The date range with symbolic period model.
+    ObjectReferenceList:
+      required:
+      - ids
+      - qualifiers
+      - refs
+      type: object
+      properties:
+        ids:
+          type: array
+          description: A list of IDs.
+          items:
+            type: integer
+            format: int64
+        qualifiers:
+          type: array
+          description: A list of qualifiers.
+          items:
+            type: string
+        refs:
+          type: array
+          description: A list of reference objects. Reference objects contain ID and
+            qualifier.
+          items:
+            $ref: '#/components/schemas/AttendanceObjectReferenceDto'
+      description: A list of object reference objects.
+    AttendanceObjectReferenceDto:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: The leave object reference model.
+    DisciplineLevel:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Discipline Level.
+    PolicyDefinition:
+      required:
+      - detailLabel
+      - qualifier
+      type: object
+      properties:
+        detailLabel:
+          type: string
+          description: Attendance policy definition name.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Policy Definition.
+    RuleDefinition:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Rule Definition.
+    AttendanceLocalizedObject:
+      required:
+      - displayName
+      - name
+      type: object
+      properties:
+        displayName:
+          type: string
+          description: Name (Localized field).
+        name:
+          type: string
+          description: Name (Non localized field).
+      description: Model for Localized Object.
+    ObjectReference:
+      required:
+      - id
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of the entity being referred by the object.
+          format: int64
+        name:
+          type: string
+          description: The name of an object reference.
+      description: This model is used as a reference to the target entity.
+    LocalePolicy:
+      required:
+      - countryCode
+      - description
+      - displayName
+      - id
+      - languageCode
+      - name
+      - tenantDefault
+      type: object
+      properties:
+        countryCode:
+          type: string
+          description: The country code of a locale policy.
+        description:
+          type: string
+          description: The description of a locale policy.
+        displayName:
+          type: string
+          description: The display name of a locale policy.
+        id:
+          type: integer
+          description: The ID of a locale policy.
+          format: int64
+        languageCode:
+          type: string
+          description: The language code of a locale policy.
+        name:
+          type: string
+          description: The name of a locale policy.
+        tenantDefault:
+          type: boolean
+          description: A Boolean indicator of whether or not a given locale policy
+            is the default locale policy for a tenant.
+      description: Model for Locale Policy.
+    ProfilePolicyAssignmentDTOList:
+      type: object
+      properties:
+        effectiveDate:
+          type: string
+          description: The effective date of a profile policy assignment in ISO_LOCAL_DATE
+            format (YYYY-MM-DD).
+          format: date
+        expirationDate:
+          type: string
+          description: The expiration date of a profile policy assignment in ISO_LOCAL_DATE
+            format (YYYY-MM-DD).
+          format: date
+        profilePolicyAssignments:
+          type: array
+          description: An array of profile policy assignments.
+          items:
+            $ref: '#/components/schemas/ProfilePolicyAssignmentDTO'
+      description: The profile policy assignment array model.
+    Multi Read Criteria to fetch attendance profile.:
+      type: object
+      properties:
+        allDetails:
+          type: boolean
+          description: A Boolean indicator of whether or not the response returns
+            all of the details of each Hyperfind query.
+        attendanceProfiles:
+          $ref: '#/components/schemas/Multi Read References which contains actual
+            criterias'
+      description: The Retrieve Employee Groups request payload model.
+    AttendanceObjectReferenceDto_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: The leave object reference model.
+    PointBalanceType_DomainService:
+      required:
+      - decimalPlaceNum
+      - maxBalanceAmount
+      - minBalanceAmount
+      - qualifier
+      - startingBalanceAmount
+      - type
+      type: object
+      properties:
+        decimalPlaceNum:
+          type: number
+          description: Number of decimal places.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        maxBalanceAmount:
+          type: number
+          description: Maximum balance amount an employee can have.
+        minBalanceAmount:
+          type: number
+          description: Minimum balance amount an employee can have.
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+        startingBalanceAmount:
+          type: number
+          description: Starting balance amount for the specified point type.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject_DomainService'
+      description: Model for Point Balance.
+    PolicyDefinition_DomainService:
+      required:
+      - detailLabel
+      - qualifier
+      type: object
+      properties:
+        detailLabel:
+          type: string
+          description: Attendance policy definition name.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Policy Definition.
+    RuleDefinition_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Rule Definition.
+    AttendanceLocalizedObject_DomainService:
+      required:
+      - displayName
+      - name
+      type: object
+      properties:
+        displayName:
+          type: string
+          description: Name (Localized field).
+        name:
+          type: string
+          description: Name (Non localized field).
+      description: Model for Localized Object.
+    PointBalanceType:
+      required:
+      - decimalPlaceNum
+      - maxBalanceAmount
+      - minBalanceAmount
+      - qualifier
+      - startingBalanceAmount
+      - type
+      type: object
+      properties:
+        decimalPlaceNum:
+          type: number
+          description: Number of decimal places.
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        maxBalanceAmount:
+          type: number
+          description: Maximum balance amount an employee can have.
+        minBalanceAmount:
+          type: number
+          description: Minimum balance amount an employee can have.
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+        startingBalanceAmount:
+          type: number
+          description: Starting balance amount for the specified point type.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+      description: Model for Point Balance.
+    ProfileDefinition:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Profile Definition.
+    EventDefinition_DomainService:
+      required:
+      - active
+      - amountUnit
+      - comment
+      - dayBased
+      - displayName
+      - exceptionType
+      - extendedData
+      - group
+      - lowerThresholdAmount
+      - lowerThresholdDayAmount
+      - paycode
+      - paycodeAmountType
+      - punchType
+      - qualifier
+      - shortName
+      - type
+      - upperThresholdAmount
+      - upperThresholdDayAmount
+      - usedType
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: A Boolean indicator of whether or not an event definition is
+            active.
+        amountUnit:
+          $ref: '#/components/schemas/AmountUnit_DomainService'
+        comment:
+          $ref: '#/components/schemas/AttendanceComment_DomainService'
+        dayBased:
+          type: boolean
+          description: A Boolean indicator of whether or not the amount of an event
+            should be measured in days.
+        displayName:
+          type: string
+          description: Display name.
+        exceptionType:
+          $ref: '#/components/schemas/ExceptionType_DomainService'
+        extendedData:
+          type: string
+          description: Shows whether this scheduled or worked pay code event has shift
+            or daily.
+        group:
+          $ref: '#/components/schemas/EventGroup_DomainService'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        lowerThresholdAmount:
+          type: integer
+          description: Low threshold amount in hours for which events are triggered.
+          format: int64
+        lowerThresholdDayAmount:
+          type: number
+          description: Low threshold amount in days for which events are triggered.
+        paycode:
+          $ref: '#/components/schemas/Paycode_DomainService'
+        paycodeAmountType:
+          $ref: '#/components/schemas/PaycodeAmountType_DomainService'
+        punchType:
+          $ref: '#/components/schemas/PunchType_DomainService'
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+        shortName:
+          type: string
+          description: Short name.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject_DomainService'
+        upperThresholdAmount:
+          type: integer
+          description: Upper threshold amount in hours for which events are triggered.
+          format: int64
+        upperThresholdDayAmount:
+          type: number
+          description: Upper threshold amount in days for which events are triggered.
+        usedType:
+          $ref: '#/components/schemas/EventUsedType_DomainService'
+      description: Model for Event Definition.
+    PointTransaction_DomainService:
+      required:
+      - applyDateTime
+      - balanceChange
+      - employee
+      - name
+      - type
+      type: object
+      properties:
+        applyDateTime:
+          type: string
+          description: Apply date and time of point transaction.
+        balanceChange:
+          type: number
+          description: Balance change amount.
+          format: double
+        decimalPlaceNum:
+          type: number
+          description: Number of decimal places.
+        employee:
+          $ref: '#/components/schemas/AttendanceObjectReferenceDto_DomainService'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        name:
+          type: string
+          description: The name associated with an object reference.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject_DomainService'
+      description: Model for Point Transaction.
+    EventDefinition:
+      required:
+      - active
+      - amountUnit
+      - comment
+      - dayBased
+      - displayName
+      - exceptionType
+      - extendedData
+      - group
+      - lowerThresholdAmount
+      - lowerThresholdDayAmount
+      - paycode
+      - paycodeAmountType
+      - punchType
+      - qualifier
+      - shortName
+      - type
+      - upperThresholdAmount
+      - upperThresholdDayAmount
+      - usedType
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: A Boolean indicator of whether or not an event definition is
+            active.
+        amountUnit:
+          $ref: '#/components/schemas/AmountUnit'
+        comment:
+          $ref: '#/components/schemas/AttendanceComment'
+        dayBased:
+          type: boolean
+          description: A Boolean indicator of whether or not the amount of an event
+            should be measured in days.
+        displayName:
+          type: string
+          description: Display name.
+        exceptionType:
+          $ref: '#/components/schemas/ExceptionType'
+        extendedData:
+          type: string
+          description: Shows whether this scheduled or worked pay code event has shift
+            or daily.
+        group:
+          $ref: '#/components/schemas/EventGroup'
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        lowerThresholdAmount:
+          type: integer
+          description: Low threshold amount in hours for which events are triggered.
+          format: int64
+        lowerThresholdDayAmount:
+          type: number
+          description: Low threshold amount in days for which events are triggered.
+        paycode:
+          $ref: '#/components/schemas/Paycode'
+        paycodeAmountType:
+          $ref: '#/components/schemas/PaycodeAmountType'
+        punchType:
+          $ref: '#/components/schemas/PunchType'
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+        shortName:
+          type: string
+          description: Short name.
+        type:
+          $ref: '#/components/schemas/AttendanceLocalizedObject'
+        upperThresholdAmount:
+          type: integer
+          description: Upper threshold amount in hours for which events are triggered.
+          format: int64
+        upperThresholdDayAmount:
+          type: number
+          description: Upper threshold amount in days for which events are triggered.
+        usedType:
+          $ref: '#/components/schemas/EventUsedType'
+      description: Model for Event Definition.
+    PerfectAttendanceDefinition:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Perfect Attendance Definition.
+    SchedulingEventDetails:
+      type: object
+      properties:
+        endDateTime:
+          type: string
+          description: The end date and time of an event in ISO_LOCAL_DATE_TIME format
+            (yyyy-mm-ddThh:mm:ss.sss).
+        endTime:
+          type: string
+          description: The end time of an event.
+        forever:
+          type: boolean
+          description: A Boolean indicator of whether or not an event is forever.
+        frequency:
+          type: string
+          description: The frequency of an event.
+        frequencyType:
+          type: integer
+          description: The frequency type of an event, such as monthly.
+          format: int32
+        interval:
+          type: integer
+          description: The interval between events.
+          format: int32
+        startDateTime:
+          type: string
+          description: The start date and time of an event in ISO_LOCAL_DATE_TIME
+            format (yyyy-mm-ddThh:mm:ss.sss).
+        startTime:
+          type: string
+          description: The start time of an event.
+      description: Context for Scheduling details.
+    ProfilePolicyAssignmentDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a profile policy assignment.
+          format: int64
+        orderNum:
+          type: integer
+          description: The order number of a profile policy assignment.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier of a profile policy assignment.
+      description: The profile policy assignment model.
+    Multi Read References which contains actual criterias:
+      type: object
+      properties:
+        ids:
+          type: array
+          description: An array of employee group IDs. Employee groups are retrieved
+            for valid identifiers specified in this array.
+          items:
+            type: integer
+            format: int64
+        persistentIds:
+          type: array
+          description: An array of persistent IDs of Hyperfind queries.
+          items:
+            type: string
+        qualifiers:
+          type: array
+          description: An array of employee group names. Employee groups are retrieved
+            for valid names specified in this array.
+          items:
+            type: string
+        refs:
+          type: array
+          description: An array of references to employee group objects. Employee
+            groups are retrieved for valid IDs or names specified in this array of
+            object references.
+          items:
+            $ref: '#/components/schemas/ObjectRef Entity'
+      description: The multi_read references which contain the actual criteria for
+        retrieving employee groups.
+    AmountUnit_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Amount Unit of Event Definition.
+    AttendanceComment_DomainService:
+      required:
+      - text
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        text:
+          type: string
+          description: text.
+      description: Model for Comment of Event Definition.
+    ExceptionType_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Exception Type.
+    EventGroup_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Event Group.
+    Paycode_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Paycode.
+    PaycodeAmountType_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Paycode Amount Type.
+    PunchType_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Punch Type.
+    EventUsedType_DomainService:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for EventUsedType.
+    AmountUnit:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Amount Unit of Event Definition.
+    AttendanceComment:
+      required:
+      - text
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        text:
+          type: string
+          description: text.
+      description: Model for Comment of Event Definition.
+    ExceptionType:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Exception Type.
+    Paycode:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Paycode.
+    PaycodeAmountType:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Paycode Amount Type.
+    PunchType:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for Punch Type.
+    EventUsedType:
+      required:
+      - qualifier
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      description: Model for EventUsedType.
+    ObjectRef Entity:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Object Ref Id
+          format: int64
+        qualifier:
+          type: string
+          description: Object Ref Unique qualifier
+      description: ObjectRef contains an id and qualifier and either field should
+        be able to uniquely identify an Object
