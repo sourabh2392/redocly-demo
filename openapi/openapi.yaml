@@ -17,7 +17,7 @@ info:
     $ref: ./info-description.md
 tags:
   - name: API
-    description: "<p markdown="1">From here you may browse our library of API resources,
+    description: '<p markdown="1">From here you may browse our library of API resources,
     organized hierarchically by domain, or major functional area, logical subgroup,
     API resource, and all available operations against that resource. For more information
     about the concepts and technology behind our API, refer to the [Getting started](C:636f581c-50a8-41a7-af43-e5057f9c20bd)
@@ -28,7 +28,7 @@ tags:
     a pragmatic implementation of the [representational state transfer](http://en.wikipedia.org/wiki/Representational_State_Transfer)
     architectural style and allows access to your organization's workforce management
     data using common HTTP methods and the [JSON](http://www.json.org) interchange
-    format.</p>"
+    format.</p>'
   - name: Scheduling
     description: This is a scheduling description.
   - name: Timekeeping
