@@ -1,81 +1,14 @@
-parameters:
-  - name: pretty_print
-    in: query
-    description: Pretty print response
-    schema:
-      type: boolean
-get:
+post:
   tags:
-    - User
-  summary: Get user by user name
+    - Actions
+  summary: Completes actions for one or more employees.
   description: |
-    Some description of the operation.
-    You can use `Markdown` here.
-  operationId: getUserByName
-  parameters:
-    - name: username
-      in: path
-      description: The name that needs to be fetched
-      required: true
-      schema:
-        type: string
-    - name: with_email
-      in: query
-      description: Filter users without email
-      schema:
-        type: boolean
-  security:
-    - main_auth:
-        - 'read:users'
-    - api_key: []
+    Operation description **Markdown**.
+  operationId: Complete Actions
   responses:
     '200':
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/User.yaml
-          example:
-            username: user1
-            email: user@example.com
-    '403':
-      description: Forbidden
-      $ref: ../components/responses/Problem.yaml
-    '404':
-      description: User not found
-      $ref: ../components/responses/Problem.yaml
-put:
-  tags:
-    - User
-  summary: Updated user
-  description: This can only be done by the logged in user.
-  operationId: updateUser
-  parameters:
-    - name: username
-      in: path
-      description: The name that needs to be updated
-      required: true
-      schema:
-        type: string
-  security:
-    - main_auth:
-        - 'write:users'
-  requestBody:
-    content:
-      application/json:
-        schema:
-          $ref: ../components/schemas/User.yaml
-      application/xml:
-        schema:
-          $ref: ../components/schemas/User.yaml
-    description: Updated user object
-    required: true
-  responses:
-    '200':
-      description: OK
+      description: Success.
     '400':
-      description: Invalid user supplied
-      $ref: ../components/responses/Problem.yaml
-    '404':
-      description: User not found
-      $ref: ../components/responses/Problem.yaml
+      description: <ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104] - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002] - The date range is invalid. The start date must be on or before the end date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100017] - Complete date is a required field.</li><li>[WAT-100034] - A conflict occurred. The following parameters are mutually exclusive: ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list cannot be null or empty.</li><li>[WAT-101110] - The employee parameter {parameterName} cannot be null.</li></ul>
+    '413':
+      description: <ul><li>[WFP-90001] - The service limit has been exceeded by the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002] - The service limit has been exceeded by the API operation on {resource} for {X} employees.</li></ul>
