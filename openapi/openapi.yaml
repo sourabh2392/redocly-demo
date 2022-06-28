@@ -1,32 +1,36 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: Example.com
-  termsOfService: 'https://example.com/terms/'
+  title: Swagger UKG
+  termsOfService: 'https://ukg.com/terms/'
   contact:
-    email: contact@example.com
-    url: 'http://example.com/contact'
+    name: API Support
+    email: contact@ukg.com
+    url: 'http://ukg.com/contact'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
+    url: 'https://redocly.github.io/redoc/ukg-logo.png'
+    altText: UKG logo
   description:
     $ref: ./info-description.md
 tags:
-  - name: Echo
-    description: Example echo operations.
-  - name: User
-    description: Operations about users.
-  - name: Tag
-    description: This is a tag description.
+  - name: Attendance
+    description: Operations about attendance.
+  - name: Platform
+    description: Operations about platform.
+  - name: Scheduling
+    description: This is a scheduling description.
+  - name: Timekeeping
+    description: This is a timekeeping description.
 servers:
   - url: 'https://{tenant}/api/v1'
     variables:
       tenant:
         default: www
         description: Your tenant id
-  - url: 'https://example.com/api/v1'
+  - url: 'https://ukg.com/api/v1'
 paths:
   '/users/{username}':
     $ref: 'paths/users_{username}.yaml'
