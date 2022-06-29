@@ -54,19 +54,80 @@ paths:
   /v1/attendance/actions/{id}:
     $ref: paths/attendance-actions-id.yaml
 components:
-  securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
-          scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
+  schemas:
+    CompleteActionsRequestContext:
+      type: object
+      description: Request Context object for action completion.
+      properties:
+        completionDateTime:
+          type: string
+          description: Date of completion.
+        dateRange:
+          $ref: "#/components/schemas/AttendanceDateRange"
+          description: The date range, which contains a start date, an end date, and a symbolic period. The symbolic period reference is mutually exclusive with start date and end date.
+        employees:
+          $ref: "#/components/schemas/ObjectReferenceList"
+          description: A list of references to employee objects.
+        note:
+          type: string
+          description: User Note.
+      required:
+        - completionDateTime
+        - dateRange
+        - employees
+        - note
+    AttendanceDateRange:
+      type: object
+      description: The date range with symbolic period model.
+      properties:
+        startDate:
+          type: string
+          description: The start date of a date range in ISO_LOCAL_DATE format (YYYY-MM-DD).
+        endDate:
+          type: string
+          description: The end date of a date range in ISO_LOCAL_DATE format (YYYY-MM-DD).
+        symbolicPeriod:
+          $ref: "#/components/schemas/AttendanceObjectReferenceDto"
+          description: A reference to a symbolic period object.
+      required:
+        - startDate
+        - endDate
+        - symbolicPeriod
+    AttendanceObjectReferenceDto:
+      type: object
+      description: The leave object reference model.
+      properties:
+        id:
+          type: integer
+          description: The ID of a leave domain entity.
+          format: int64
+        qualifier:
+          type: string
+          description: The qualifier which resolves an object reference.
+      required:
+        - qualifier
+    ObjectReferenceList:
+      type: object
+      description: A list of object reference objects.
+      properties:
+        ids:
+          type: array
+          description: A list of IDs.
+          items:
+            type: integer
+            format: int64
+        qualifier:
+          type: array
+          description: A list of qualifiers.
+          items:
+            type: string
+        refs:
+          type: array
+          description: A list of reference objects. Reference objects contain ID and qualifier.
+          items:
+            $ref: "#/components/schemas/AttendanceObjectReferenceDto"
+      required:
+        - ids
+        - qualifiers
+        - refs
+    
