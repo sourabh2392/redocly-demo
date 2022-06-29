@@ -5,6 +5,12 @@ post:
   description: |
     Operation description **Markdown**.
   operationId: completeActions
+  requestBody:
+    required: true
+    description: Complete Action request context: contains list of employees, start date, end date, and completion date.
+    application/json:
+      schema:
+        $ref: "#/components/schemas/CompleteActionsRequestContext"
   responses:
     '200':
       description: Success.
