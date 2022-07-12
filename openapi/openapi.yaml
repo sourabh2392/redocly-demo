@@ -124,7 +124,7 @@ paths:
       description: This operation completes actions for a list of employees whose
         actions fall within a date range. When an action is completed, this operation
         sets a completion date for each such action.
-      operationId: Complete Actions
+      operationId: CompleteActions
       requestBody:
         description: 'Complete Action request context: contains list of employees,
           start date, end date, and completion date.'
@@ -162,7 +162,7 @@ paths:
       summary: Returns all documents associated with a group of actions.
       description: This operation returns all documents associated with a group of
         actions for a list of employees within a date range.
-      operationId: Retrieve Actions' Documents
+      operationId: RetrieveActions'Documents
       requestBody:
         description: 'Retrieve Action request context: contains a list of employees
           and a date range.'
@@ -206,7 +206,7 @@ paths:
         a date range irrespective of their status. Optionally, this operation returns
         only required actions with an initiated or triggered status for a list of
         employees within a date range.
-      operationId: Retrieve Multiple Actions
+      operationId: RetrieveMultipleActions
       requestBody:
         description: 'Action request context: contains list of employees, start date,
           end date and optional find required only or completed flag.'
@@ -247,7 +247,7 @@ paths:
       summary: Returns information about an action.
       description: This operation returns information about an action by ID. You can
         choose to execute this operation either from the manager or employee perspective.
-      operationId: Retrieve Action by ID
+      operationId: RetrieveActionbyID
       parameters:
       - name: id
         in: path
@@ -280,7 +280,7 @@ paths:
       description: This operation updates an action's completion date and user note
         by ID. If no completion date is provided, this operation deletes the existing
         date and returns the action to the initiated status.
-      operationId: Update Action by ID
+      operationId: UpdateActionbyID
       parameters:
       - name: id
         in: path
@@ -322,7 +322,7 @@ paths:
       description: This operation returns all the documents associated with an action
         by ID. You can choose to execute this operation either from the manager or
         employee perspective.
-      operationId: Retrieve Action Documents by ID
+      operationId: RetrieveActionDocumentsbyID
       parameters:
       - name: id
         in: path
@@ -357,7 +357,7 @@ paths:
       summary: Returns all attendance profiles.
       description: <p>This operation returns all attendance profiles.</p><br /><p>The
         associated Access Control Point is WORKFORCE_ATTENDANCE_SETUP.</p>
-      operationId: Retrieve All Attendance Profiles
+      operationId: RetrieveAllAttendanceProfiles
       parameters:
       - name: all_details
         in: query
@@ -383,7 +383,7 @@ paths:
       summary: Returns attendance profiles.
       description: <p>This operation returns attendance profiles by object references.</p><br
         /><p>The associated Access Control Point is WORKFORCE_ATTENDANCE_SETUP.</p>
-      operationId: Retrieve Attendance Profiles
+      operationId: RetrieveAttendanceProfiles
       requestBody:
         description: 'Attendance Profile request: contains a list of ids, qualifiers,
           persistentId or refs.'
@@ -422,7 +422,7 @@ paths:
       summary: Returns an attendance profile.
       description: <p>This operation returns an attendance profile by ID.</p><br /><p>The
         associated Access Control Point is WORKFORCE_ATTENDANCE_SETUP.</p>
-      operationId: Retrieve Attendance Profile by ID
+      operationId: RetrieveAttendanceProfilebyID
       parameters:
       - name: id
         in: path
@@ -453,7 +453,7 @@ paths:
         in a request, all entities are returned. Note that the start date and end
         date may have different meanings for different entity types, and that entities
         of different types may contain different properties.
-      operationId: Retrieve Attendance Audit Records
+      operationId: RetrieveAttendanceAuditRecords
       requestBody:
         description: 'Retrieve Audit Records request context: contains list of employees,
           start date, end date. and a list of auditing entities.'
@@ -499,7 +499,7 @@ paths:
       description: This operation updates balances for a list of employees within
         a date range based on a balance type and returns a list of balance adjustment
         IDs.
-      operationId: Update and Return Balances
+      operationId: UpdateandReturnBalances
       requestBody:
         description: 'Update and Return Balances request context: contains a list
           of employees, balance type, and update date.'
@@ -532,7 +532,7 @@ paths:
       summary: Returns point balance adjustments.
       description: This operation returns point balance adjustments for a list of
         employees within a date range.
-      operationId: Retrieve Balance Adjustments
+      operationId: RetrieveBalanceAdjustments
       requestBody:
         description: 'Retrieve Balance Adjustments request context: contains a list
           of employees, start date, and end date.'
@@ -572,7 +572,7 @@ paths:
       description: This operation updates balances for a list of employees within
         a date range based on a balance type and returns a list of balance adjustment
         IDs.
-      operationId: Bulk Update and Return Balances
+      operationId: BulkUpdateandReturnBalances
       requestBody:
         description: 'Update and Return Balances request contexts: each context contains
           a list of employees, balance type, and update date.'
@@ -608,7 +608,7 @@ paths:
       summary: Marks point balance adjustments for deletion.
       description: This operation marks point balance adjustments for deletion by
         ID.
-      operationId: Mark Balance Adjustments for Deletion by ID
+      operationId: MarkBalanceAdjustmentsforDeletionbyID
       parameters:
       - name: id
         in: path
@@ -633,7 +633,7 @@ paths:
       summary: Returns expiring points for employees.
       description: This operation returns expiring points for a list of employees
         within a date range.
-      operationId: Retrieve Expiring Balances
+      operationId: RetrieveExpiringBalances
       requestBody:
         description: Retrieve Expiring Balances request context contains a list of
           employees, start date, and end date.
@@ -671,7 +671,7 @@ paths:
       summary: Resets balances for employees.
       description: This operation resets the balances for a list of employees within
         a date range and based on a balance type and returns a list of the reset balances.
-      operationId: Reset Balances
+      operationId: ResetBalances
       requestBody:
         description: Reset Balances request context contains a list of employees,
           balance types, and reset date.
@@ -704,7 +704,7 @@ paths:
       summary: Returns point balance resets for employees.
       description: This operation returns balance resets for a list of employees within
         a date range.
-      operationId: Retrieve Balance Resets
+      operationId: RetrieveBalanceResets
       requestBody:
         description: Retrieve Balance Resets request context contains a list of employees,
           start date, end date, and balance types.
@@ -743,7 +743,7 @@ paths:
       summary: Resets balances for employees for multiple balance types.
       description: This operation resets the balances for a list of employees within
         a date range and based on a balance type and returns a list of the reset balances.
-      operationId: Bulk Reset Balances
+      operationId: BulkResetBalances
       requestBody:
         description: 'Reset Balances request contexts: each context contains a list
           of employees, balance types, and reset date.'
@@ -778,7 +778,7 @@ paths:
       - Balance Resets
       summary: Marks point balance resets for deletion.
       description: This operation marks point balance resets for deletion by ID.
-      operationId: Mark Balance Resets for Deletion by ID
+      operationId: MarkBalanceResetsforDeletionbyID
       parameters:
       - name: id
         in: path
@@ -802,7 +802,7 @@ paths:
       summary: Returns point balance summaries for employees.
       description: This operation returns point balance summaries for a list of employees
         within a date range.
-      operationId: Retrieve Balances
+      operationId: RetrieveBalances
       requestBody:
         description: Retrieve Balances request context contains a list of employees,
           start date, and end date.
@@ -846,7 +846,7 @@ paths:
         within a date range. If <code>includeDailyDiscLevels</code> is true, the discipline
         level for every day in the date range is returned. If <code>includeDailyDiscLevels</code>
         is false, only discipline level changes are returned.
-      operationId: Retrieve Discipline Levels
+      operationId: RetrieveDisciplineLevels
       requestBody:
         description: Retrieve Discipline Levels request context contains a list of
           employees, date range, and daily value flag.
@@ -888,7 +888,7 @@ paths:
       summary: Returns events that resulted in a specified action.
       description: <p>This operation returns events that resulted in a specified action.</p><p><strong>Note:</strong>
         Perfect Attendance actions return an empty event list.</p>
-      operationId: Retrieve Events by Action
+      operationId: RetrieveEventsbyAction
       parameters:
       - name: action_id
         in: query
@@ -937,7 +937,7 @@ paths:
       summary: Creates events for one or more employees.
       description: This operation creates basic Attendance events for one or more
         employees.
-      operationId: Create Events
+      operationId: CreateEvents
       parameters:
       - name: partial_success
         in: query
@@ -990,7 +990,7 @@ paths:
       summary: Returns events.
       description: This operation returns events for a list of employees within a
         date range.
-      operationId: Retrieve Events
+      operationId: RetrieveEvents
       requestBody:
         description: Retrieve Events request context contains a list of employees,
           start date, end date, and an Exclude Inconsequential Events flag.
@@ -1033,7 +1033,7 @@ paths:
       summary: Returns a list of event types.
       description: 'This operation returns a list of the following event types: basic,
         pattern, combined, lost_time, and perfect_attendance.'
-      operationId: Retrieve Event Types
+      operationId: RetrieveEventTypes
       parameters:
       - name: is_manager_role
         in: query
@@ -1057,7 +1057,7 @@ paths:
       - Events
       summary: Updates an event.
       description: This operation updates a basic attendance event by ID.
-      operationId: Update Event by ID
+      operationId: UpdateEventbyID
       parameters:
       - name: id
         in: path
@@ -1098,7 +1098,7 @@ paths:
       description: 'This operation deletes a basic Attendance event by ID. The following
         event types cannot be deleted: patterns, combined events, lost time events,
         and perfect Attendance events.'
-      operationId: Delete Event by ID
+      operationId: DeleteEventbyID
       parameters:
       - name: id
         in: path
@@ -1122,7 +1122,7 @@ paths:
       description: 'This operation marks a basic attendance event as deleted by ID.
         The following event types cannot be marked as deleted: patterns, combined
         events, lost time events, and perfect Attendance events.'
-      operationId: Mark Event as Deleted by ID
+      operationId: MarkEventasDeletedbyID
       parameters:
       - name: id
         in: path
@@ -1145,7 +1145,7 @@ paths:
       summary: Returns an event.
       description: 'This operation returns an event by an ID and type. The following
         are valid values for type: basic, pattern, combined, lost_time, and perfect_attendance.'
-      operationId: Retrieve Event by ID
+      operationId: RetrieveEventbyID
       parameters:
       - name: id
         in: path
@@ -1191,7 +1191,7 @@ paths:
         Marker date are not processed. When an Ignore Timecard Marker is added to
         an employee record, Attendance events earlier than the Ignore Timecard Marker
         date are not processed.
-      operationId: Create or Update Ignore Markers
+      operationId: CreateorUpdateIgnoreMarkers
       requestBody:
         description: The request context for the Create or Update Ignore Markers operation
           contains marker type, a list of employees, and a date.
@@ -1225,7 +1225,7 @@ paths:
         from an employee record, all Attendance events are processed. When an Ignore
         Timecard Marker is removed from an employee record, the Attendance Processor
         no longer ignores Timecard data preceding the Ignore Timecard Marker date.
-      operationId: Remove Ignore Markers
+      operationId: RemoveIgnoreMarkers
       requestBody:
         description: The request context for the Remove Ignore Markers operation contains
           marker type and a list of employees.
@@ -1254,7 +1254,7 @@ paths:
       summary: Returns history and Timecard data markers.
       description: This operation returns history and Timecard data markers for a
         list of employees.
-      operationId: Retrieve Markers
+      operationId: RetrieveMarkers
       requestBody:
         description: The request context for the Retrieve Markers operation contains
           a list of employees and an optional start date and end date.
@@ -1293,7 +1293,7 @@ paths:
       summary: Returns Perfect Attendance awards and violations.
       description: This operation returns Perfect Attendance awards and violations
         for a list of employees within a date range.
-      operationId: Retrieve Perfect Attendance Transactions
+      operationId: RetrievePerfectAttendanceTransactions
       requestBody:
         description: The request context for the Retrieve Perfect Attendance Transactions
           operation contains a list of employees, a start date, and an end date.
@@ -1335,7 +1335,7 @@ paths:
       summary: Returns Perfect Attendance deductions.
       description: This operation returns Perfect Attendance deductions for a list
         of employees within a date range.
-      operationId: Retrieve Perfect Attendance Deductions
+      operationId: RetrievePerfectAttendanceDeductions
       requestBody:
         description: The request context for the Retrieve Perfect Attendance Deductions
           operation contains a list of employees, a start date, and an end date.
@@ -1376,7 +1376,7 @@ paths:
       - Processor Requests
       summary: Returns all Attendance Processor requests.
       description: This operation returns all Attendance Processor requests.
-      operationId: Retrieve Attendance Processor Requests
+      operationId: RetrieveAttendanceProcessorRequests
       responses:
         200:
           description: Success.
@@ -1391,7 +1391,7 @@ paths:
       - Processor Requests
       summary: Creates an Attendance Processor request.
       description: This operation creates an Attendance Processor request.
-      operationId: Create Attendance Processor Request
+      operationId: CreateAttendanceProcessorRequest
       requestBody:
         description: Data Transfer Object (DTO) for the Create Attendance Processor
           Request operation.
@@ -1427,7 +1427,7 @@ paths:
       - Processor Requests
       summary: Returns an Attendance Processor request.
       description: This operation returns an Attendance Processor request by ID.
-      operationId: Retrieve Attendance Processor Request by ID
+      operationId: RetrieveAttendanceProcessorRequestbyID
       parameters:
       - name: id
         in: path
@@ -1454,7 +1454,7 @@ paths:
       summary: Updates an Attendance Processor request.
       description: This operation updates an existing Attendance Processor request
         by ID.
-      operationId: Update Attendance Processor Request by ID
+      operationId: UpdateAttendanceProcessorRequestbyID
       parameters:
       - name: id
         in: path
@@ -1496,7 +1496,7 @@ paths:
       - Processor Requests
       summary: Deletes an Attendance Processor request.
       description: This operation deletes an Attendance Processor request by ID.
-      operationId: Delete Attendance Processor Request by ID
+      operationId: DeleteAttendanceProcessorRequestbyID
       parameters:
       - name: id
         in: path
@@ -1521,7 +1521,7 @@ paths:
       summary: Returns profile assignments for employees.
       description: This operation returns profile assignments for a list of employees
         within a date range.
-      operationId: Retrieve Profile Assignments
+      operationId: RetrieveProfileAssignments
       requestBody:
         description: 'Attendance employee profile assignments request context: contains
           list of employees, start date, and end date.'
@@ -1564,7 +1564,7 @@ paths:
       description: This operation executes Attendance rules for a list of employees
         within a date range. The Attendance Processor runs the rules and generates
         any resulting actions for each employee.
-      operationId: Execute Attendance Rules for Employees
+      operationId: ExecuteAttendanceRulesforEmployees
       requestBody:
         description: Contains a list of employees, start date, end date, and Use Default
           Start Date flag.
