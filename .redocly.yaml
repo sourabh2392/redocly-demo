@@ -1,9 +1,9 @@
 # See https://redocly.com/docs/cli/configuration/ for more information.
 apis:
   sample@v1: 
-    root: openapi/openapi-v1.yaml
+    root: openapi/Attendance-v1.json
   sample@v2: 
-    root: openapi/openapi-v2.yaml
+    root: openapi/Attendance-v2.json
 lint:
   extends:
     - recommended
