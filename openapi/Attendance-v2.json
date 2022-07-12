@@ -76,36 +76,6 @@
     "x-parent" : "Attendance"
   } ], 
   "paths" : {
-    "/v1/attendance/actions/complete" : {
-      "post" : {
-        "consumes" : [ "application/json" ], 
-        "description" : "This operation completes actions for a list of employees whose actions fall within a date range. When an action is completed, this operation sets a completion date for each such action.", 
-        "operationId" : "CompleteActions", 
-        "parameters" : [ {
-          "description" : "Complete Action request context: contains list of employees, start date, end date, and completion date.", 
-          "in" : "body", 
-          "name" : "body", 
-          "required" : true, 
-          "schema" : {
-            "$ref" : "#/definitions/CompleteActionsRequestContext"
-          }
-        } ], 
-        "produces" : [ "application/json" ], 
-        "responses" : {
-          "200" : {
-            "description" : "Success."
-          }, 
-          "400" : {
-            "description" : "<ul><li>[WAT-101000] - The date format is invalid.</li><li>[WAT-101104] - Start date is required.</li><li>[WAT-101103] - End date is required.</li><li>[WAT-101002] - The date range is invalid. The start date must be on or before the end date.</li><li>[WAT-101105] - An employee ID list is required.</li><li>[WAT-100017] - Complete date is a required field.</li><li>[WAT-100034] - A conflict occurred. The following parameters are mutually exclusive: ids, qualifiers, refs.</li><li>[WAT-101109] - Employee reference list cannot be null or empty.</li><li>[WAT-101110] - The employee parameter {parameterName} cannot be null.</li></ul>"
-          }, 
-          "413" : {
-            "description" : "<ul><li>[WFP-90001] - The service limit has been exceeded by the API operation on {resource} for {X} employees and {Y} days.</li><li>[WFP-90002] - The service limit has been exceeded by the API operation on {resource} for {X} employees.</li></ul>"
-          }
-        }, 
-        "summary" : "Completes actions for one or more employees.", 
-        "tags" : [ "Actions" ]
-      }
-    }, 
     "/v1/attendance/actions/documents/multi_read" : {
       "post" : {
         "consumes" : [ "application/json" ], 
@@ -1452,29 +1422,6 @@
     }
   }, 
   "definitions" : {
-    "CompleteActionsRequestContext" : {
-      "description" : "Request Context object for action completion.", 
-      "properties" : {
-        "completionDateTime" : {
-          "description" : "Date of completion.", 
-          "type" : "string"
-        }, 
-        "dateRange" : {
-          "$ref" : "#/definitions/AttendanceDateRange", 
-          "description" : "The date range, which contains a start date, an end date, and a symbolic period. The symbolic period reference is mutually exclusive with start date and end date."
-        }, 
-        "employees" : {
-          "$ref" : "#/definitions/ObjectReferenceList", 
-          "description" : "A list of references to employee objects."
-        }, 
-        "note" : {
-          "description" : "User Note.", 
-          "type" : "string"
-        }
-      }, 
-      "required" : [ "completionDateTime", "dateRange", "employees", "note" ], 
-      "type" : "object"
-    }, 
     "AccessControlledRequestContext" : {
       "description" : "Parent for other Attendance Request Contexts with flag manager role.", 
       "properties" : {
